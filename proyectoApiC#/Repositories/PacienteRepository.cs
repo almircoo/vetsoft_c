@@ -17,10 +17,31 @@ namespace proyectoApiC_.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Paciente>> GetByClienteIdAsync(int clienteId)
+        public async Task<IEnumerable<Paciente>> GetByClienteIdAsync(long clienteId)
         {
             return await _dbSet.AsNoTracking()
-                .Where(p => p.ClienteId == clienteId)
+                .Where(p => p.IdCliente == clienteId)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Paciente>> GetByCodigoAsync(string codigo)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(p => p.Codigo.Contains(codigo))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Paciente>> GetByEspecieAsync(string especie)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(p => p.Especie == especie)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Paciente>> GetByEstadoAsync(bool estado)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(p => p.Estado == estado)
                 .ToListAsync();
         }
     }

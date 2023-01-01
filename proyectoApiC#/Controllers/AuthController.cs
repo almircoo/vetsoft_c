@@ -1,10 +1,6 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using proyectoApiC_.DTOs;
 using proyectoApiC_.Services;
-using System.Security.Claims;
 
 namespace proyectoApiC_.Controllers
 {
@@ -12,17 +8,14 @@ namespace proyectoApiC_.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
-        private readonly ILogger<AuthController> _logger;
+        private readonly AuthService _authService;
 
-        public AuthController(IAuthService authService, ILogger<AuthController> logger)
+        public AuthController(AuthService authService)
         {
             _authService = authService;
-            _logger = logger;
         }
 
         [HttpPost("login")]
-        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] UsuarioLoginDTO loginDto)
         {
             try
@@ -34,44 +27,22 @@ namespace proyectoApiC_.Controllers
 
                 if (usuario == null)
                 {
-                    _logger.LogWarning($"Intento de login fallido para el correo: {loginDto.Correo}");
-                    return Unauthorized(new { message = "Credenciales incorrectas" });
+                    return Unauthorized(new { message = "Correo o contraseña incorrectos" });
                 }
-
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                    new Claim(ClaimTypes.Name, $"{usuario.Nombre} {usuario.Apellido}"),
-                    new Claim(ClaimTypes.Email, usuario.Correo),
-                    new Claim(ClaimTypes.Role, usuario.Rol)
-                };
-
-                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var authProperties = new AuthenticationProperties
-                {
-                    IsPersistent = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24)
-                };
-
-                await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity),
-                    authProperties
-                );
-
-                _logger.LogInformation($"Usuario logueado correctamente: {usuario.Correo}");
 
                 return Ok(new { message = "Login exitoso", user = usuario });
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error crítico durante el login");
-                return StatusCode(500, new { message = "Ocurrió un error interno en el servidor" });
+                return StatusCode(500, new { message = "Error interno del servidor", error = ex.Message });
             }
         }
 
         [HttpPost("register")]
-        [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] UsuarioCreateDTO registerDto)
         {
             try
@@ -81,66 +52,37 @@ namespace proyectoApiC_.Controllers
 
                 var usuario = await _authService.RegisterAsync(registerDto);
 
-                if (usuario == null)
-                {
-                    return BadRequest(new { message = "No se pudo registrar el usuario, verifique los datos" });
-                }
-
-                _logger.LogInformation($"Usuario registrado: {usuario.Correo}");
-
-                return CreatedAtAction(nameof(GetCurrentUser), new { id = usuario.Id }, new
+                return CreatedAtAction(nameof(ObtenerUsuario), new { id = usuario.IdUsuario }, new
                 {
                     message = "Registro exitoso",
                     user = usuario
                 });
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error en el registro");
-                return StatusCode(500, new { message = "Ocurrió un error al registrar el usuario" });
+                return StatusCode(500, new { message = "Error al registrar usuario", error = ex.Message });
             }
         }
 
-        [HttpGet("me")]
-        [Authorize]
-        public async Task<IActionResult> GetCurrentUser()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerUsuario(long id)
         {
             try
             {
-                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-                if (userIdClaim == null) return Unauthorized();
+                var usuario = await _authService.ObtenerUsuarioPorId(id);
 
-                if (!long.TryParse(userIdClaim.Value, out long userId))
-                    return Unauthorized();
-
-                var usuario = await _authService.GetUserByIdAsync((int)userId);
-
-                if (usuario == null) return NotFound();
+                if (usuario == null)
+                    return NotFound(new { message = "Usuario no encontrado" });
 
                 return Ok(usuario);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al recuperar perfil de usuario");
-                return StatusCode(500, new { message = "Error al obtener usuario" });
-            }
-        }
-
-        [HttpPost("logout")]
-        [Authorize]
-        public async Task<IActionResult> Logout()
-        {
-            try
-            {
-                var email = User.FindFirst(ClaimTypes.Email)?.Value ?? "Desconocido";
-                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-                _logger.LogInformation($"Usuario desconectado: {email}");
-                return Ok(new { message = "Logout exitoso" });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error en el logout");
-                return StatusCode(500, new { message = "Error al cerrar sesión" });
+                return StatusCode(500, new { message = "Error al obtener usuario", error = ex.Message });
             }
         }
     }

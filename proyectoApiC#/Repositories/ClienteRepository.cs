@@ -10,10 +10,10 @@ namespace proyectoApiC_.Repositories
         {
         }
 
-        public async Task<Cliente?> GetByEmailAsync(string email)
+        public async Task<Cliente?> GetByCorreoAsync(string correo)
         {
             return await _dbSet.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Email == email);
+                .FirstOrDefaultAsync(c => c.Correo == correo);
         }
 
         public async Task<Cliente?> GetByTelefonoAsync(string telefono)
@@ -26,6 +26,20 @@ namespace proyectoApiC_.Repositories
         {
             return await _dbSet.AsNoTracking()
                 .Where(c => c.Nombre.Contains(nombre))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cliente>> GetByCodigoAsync(string codigo)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(c => c.Codigo.Contains(codigo))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cliente>> GetByEstadoAsync(bool estado)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(c => c.Estado == estado)
                 .ToListAsync();
         }
     }

@@ -1,35 +1,34 @@
+using System;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using proyectoApiC_.Data;
 using proyectoApiC_.Models;
-using proyectoApiC_.Repositories;
 using proyectoApiC_.DTOs;
-using BCrypt.Net;
 
 namespace proyectoApiC_.Services
 {
-    public interface IAuthService
+    public class AuthService
     {
-        Task<UsuarioResponseDTO?> LoginAsync(UsuarioLoginDTO loginDto);
-        Task<UsuarioResponseDTO?> RegisterAsync(UsuarioCreateDTO registerDto);
-        Task<UsuarioResponseDTO?> GetUserByIdAsync(long id);
-        string HashPassword(string password);
-    }
+        private readonly AppDbContext _context;
 
-    public class AuthService : IAuthService
-    {
-        private readonly IUsuarioRepository _usuarioRepository;
-
-        public AuthService(IUsuarioRepository usuarioRepository)
+        public AuthService(AppDbContext context)
         {
-            _usuarioRepository = usuarioRepository;
+            _context = context;
         }
 
         public async Task<UsuarioResponseDTO?> LoginAsync(UsuarioLoginDTO loginDto)
         {
-            var usuario = await _usuarioRepository.GetByCorreoAsync(loginDto.Correo);
+            if (string.IsNullOrWhiteSpace(loginDto.Correo) || string.IsNullOrWhiteSpace(loginDto.Contrasena))
+                throw new ArgumentException("El correo y contraseña son requeridos");
+
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Correo == loginDto.Correo && u.Estado);
 
             if (usuario == null)
                 return null;
 
-            if (!BCrypt.Net.BCrypt.EnhancedVerify(loginDto.Contrasena, usuario.Contrasena))
+            if (!VerifyPassword(loginDto.Contrasena, usuario.Contrasena))
                 return null;
 
             return MapToResponseDTO(usuario);
@@ -37,9 +36,18 @@ namespace proyectoApiC_.Services
 
         public async Task<UsuarioResponseDTO?> RegisterAsync(UsuarioCreateDTO registerDto)
         {
-            var existingEmail = await _usuarioRepository.GetByCorreoAsync(registerDto.Correo);
-            if (existingEmail != null)
-                return null;
+            if (string.IsNullOrWhiteSpace(registerDto.Nombre))
+                throw new ArgumentException("El nombre es requerido");
+            if (string.IsNullOrWhiteSpace(registerDto.Apellido))
+                throw new ArgumentException("El apellido es requerido");
+            if (string.IsNullOrWhiteSpace(registerDto.Correo))
+                throw new ArgumentException("El correo es requerido");
+            if (string.IsNullOrWhiteSpace(registerDto.Contrasena))
+                throw new ArgumentException("La contraseña es requerida");
+
+            var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Correo == registerDto.Correo);
+            if (existingUser != null)
+                throw new ArgumentException("El correo ya está registrado");
 
             var usuario = new Usuario
             {
@@ -52,33 +60,43 @@ namespace proyectoApiC_.Services
                 Estado = true
             };
 
-            await _usuarioRepository.AddAsync(usuario);
-            await _usuarioRepository.SaveChangesAsync();
+            _context.Usuarios.Add(usuario);
+            await _context.SaveChangesAsync();
 
             return MapToResponseDTO(usuario);
         }
 
-        public async Task<UsuarioResponseDTO?> GetUserByIdAsync(long id)
+        public async Task<UsuarioResponseDTO?> ObtenerUsuarioPorId(long id)
         {
-            var usuario = await _usuarioRepository.GetByIdAsync(id);
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id && u.Estado);
             return usuario == null ? null : MapToResponseDTO(usuario);
         }
 
         public string HashPassword(string password)
         {
-            return BCrypt.Net.BCrypt.EnhancedHashPassword(password, hashType: HashType.SHA512);
+            using (var sha256 = SHA256.Create())
+            {
+                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
+        private bool VerifyPassword(string password, string hash)
+        {
+            var hashOfInput = HashPassword(password);
+            return hashOfInput == hash;
         }
 
         private UsuarioResponseDTO MapToResponseDTO(Usuario usuario)
         {
             return new UsuarioResponseDTO
             {
-                Id = usuario.IdUsuario,
+                IdUsuario = usuario.IdUsuario,
                 Codigo = usuario.Codigo,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
                 Correo = usuario.Correo,
-                Rol = usuario.Rol.ToString(),
+                Rol = usuario.RolString,
                 Estado = usuario.Estado
             };
         }

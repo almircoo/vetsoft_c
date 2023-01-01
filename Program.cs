@@ -23,12 +23,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Register Repository
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
 builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
-builder.Services.AddScoped<IServicioRepository, ServicioRepository>();
 builder.Services.AddScoped<ICitaRepository, CitaRepository>();
+builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+builder.Services.AddScoped<IServicioRepository, ServicioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+//builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+//builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+//builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+//builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+//builder.Services.AddScoped<IVeterinarioRepository, VeterinarioRepository>();
+//builder.Services.AddScoped<IServicioRepository, ServicioRepository>();
+//builder.Services.AddScoped<ICitaRepository, CitaRepository>();
 
 // Register business services
 builder.Services.AddScoped<ClienteService>();
@@ -37,7 +44,7 @@ builder.Services.AddScoped<ServicioService>();
 builder.Services.AddScoped<VeterinarioService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<CitaService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<AuthService>();
 
 // Cookie
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
