@@ -4,8 +4,8 @@ namespace proyectoApiC_.Repositories
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
-        Task<Usuario?> GetByNombreUsuarioAsync(string nombreUsuario);
-        Task<Usuario?> GetByEmailAsync(string email);
-        Task<IEnumerable<Usuario>> GetByRolAsync(string rol);
+        Task<Usuario?> GetByCodigoAsync(string codigo);
+        Task<Usuario?> GetByCorreoAsync(string correo);
+        Task<IEnumerable<Usuario>> GetByRolAsync(Rol rol);
     }
 }

@@ -5,13 +5,11 @@ using BCrypt.Net;
 
 namespace proyectoApiC_.Services
 {
-
     public interface IAuthService
     {
         Task<UsuarioResponseDTO?> LoginAsync(UsuarioLoginDTO loginDto);
         Task<UsuarioResponseDTO?> RegisterAsync(UsuarioCreateDTO registerDto);
-        Task<UsuarioResponseDTO?> GetUserByIdAsync(int id);
-        Task<bool> ValidatePasswordAsync(string password, string hashedPassword);
+        Task<UsuarioResponseDTO?> GetUserByIdAsync(long id);
         string HashPassword(string password);
     }
 
@@ -26,13 +24,12 @@ namespace proyectoApiC_.Services
 
         public async Task<UsuarioResponseDTO?> LoginAsync(UsuarioLoginDTO loginDto)
         {
-            var usuario = await _usuarioRepository.GetByNombreUsuarioAsync(loginDto.NombreUsuario);
+            var usuario = await _usuarioRepository.GetByCorreoAsync(loginDto.Correo);
 
             if (usuario == null)
                 return null;
 
-            // Validate password
-            if (!BCrypt.Net.BCrypt.EnhancedVerify(loginDto.Contraseña, usuario.Contraseña))
+            if (!BCrypt.Net.BCrypt.EnhancedVerify(loginDto.Contrasena, usuario.Contrasena))
                 return null;
 
             return MapToResponseDTO(usuario);
@@ -40,24 +37,19 @@ namespace proyectoApiC_.Services
 
         public async Task<UsuarioResponseDTO?> RegisterAsync(UsuarioCreateDTO registerDto)
         {
-            var existingUser = await _usuarioRepository.GetByNombreUsuarioAsync(registerDto.NombreUsuario);
-            if (existingUser != null)
-                return null;
-
-            var existingEmail = await _usuarioRepository.GetByEmailAsync(registerDto.Email);
+            var existingEmail = await _usuarioRepository.GetByCorreoAsync(registerDto.Correo);
             if (existingEmail != null)
                 return null;
 
-            var hashedPassword = HashPassword(registerDto.Contraseña);
-
             var usuario = new Usuario
             {
-                NombreUsuario = registerDto.NombreUsuario,
-                Email = registerDto.Email,
-                Contraseña = hashedPassword,
-                Rol = registerDto.Rol,
-                FechaCreacion = DateTime.UtcNow,
-                FechaActualizacion = DateTime.UtcNow
+                Codigo = registerDto.Codigo,
+                Nombre = registerDto.Nombre,
+                Apellido = registerDto.Apellido,
+                Correo = registerDto.Correo,
+                Contrasena = HashPassword(registerDto.Contrasena),
+                RolString = registerDto.Rol,
+                Estado = true
             };
 
             await _usuarioRepository.AddAsync(usuario);
@@ -66,18 +58,10 @@ namespace proyectoApiC_.Services
             return MapToResponseDTO(usuario);
         }
 
-        public async Task<UsuarioResponseDTO?> GetUserByIdAsync(int id)
+        public async Task<UsuarioResponseDTO?> GetUserByIdAsync(long id)
         {
             var usuario = await _usuarioRepository.GetByIdAsync(id);
-            if (usuario == null)
-                return null;
-
-            return MapToResponseDTO(usuario);
-        }
-
-        public async Task<bool> ValidatePasswordAsync(string password, string hashedPassword)
-        {
-            return await Task.FromResult(BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword));
+            return usuario == null ? null : MapToResponseDTO(usuario);
         }
 
         public string HashPassword(string password)
@@ -89,12 +73,13 @@ namespace proyectoApiC_.Services
         {
             return new UsuarioResponseDTO
             {
-                Id = usuario.Id,
-                NombreUsuario = usuario.NombreUsuario,
-                Email = usuario.Email,
-                Rol = usuario.Rol,
-                FechaCreacion = usuario.FechaCreacion,
-                FechaActualizacion = usuario.FechaActualizacion
+                Id = usuario.IdUsuario,
+                Codigo = usuario.Codigo,
+                Nombre = usuario.Nombre,
+                Apellido = usuario.Apellido,
+                Correo = usuario.Correo,
+                Rol = usuario.Rol.ToString(),
+                Estado = usuario.Estado
             };
         }
     }

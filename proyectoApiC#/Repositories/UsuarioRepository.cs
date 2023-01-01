@@ -4,31 +4,30 @@ using proyectoApiC_.Models;
 
 namespace proyectoApiC_.Repositories
 {
-    /// <summary>
-    /// Repository implementation for Usuario entity
-    /// </summary>
     public class UsuarioRepository : Repository<Usuario>, IUsuarioRepository
     {
         public UsuarioRepository(AppDbContext context) : base(context)
         {
         }
 
-        public async Task<Usuario?> GetByNombreUsuarioAsync(string nombreUsuario)
+        public async Task<Usuario?> GetByCodigoAsync(string codigo)
         {
             return await _dbSet.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.NombreUsuario == nombreUsuario);
+                .FirstOrDefaultAsync(u => u.Codigo == codigo);
         }
 
-        public async Task<Usuario?> GetByEmailAsync(string email)
+        public async Task<Usuario?> GetByCorreoAsync(string correo)
         {
             return await _dbSet.AsNoTracking()
-                .FirstOrDefaultAsync(u => u.Email == email);
+                .FirstOrDefaultAsync(u => u.Correo == correo);
         }
 
-        public async Task<IEnumerable<Usuario>> GetByRolAsync(string rol)
+        public async Task<IEnumerable<Usuario>> GetByRolAsync(Rol rol)
         {
+            string rolString = rol.ToString();
+
             return await _dbSet.AsNoTracking()
-                .Where(u => u.Rol == rol)
+                .Where(u => u.RolString == rolString)
                 .ToListAsync();
         }
     }

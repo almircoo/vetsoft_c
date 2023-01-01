@@ -3,46 +3,28 @@
   "WorkspaceRootPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\servicioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\pacienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\proyectoapic#.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\pacientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\serviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\veterinariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\models\\cita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\controllers\\citascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\citaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\proyectoapic#.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,183 +34,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ServicioService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\ServicioService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\ServicioService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\ServicioService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\ServicioService.cs",
+              "DocumentIndex": 2,
+              "Title": "proyectoApiC#",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.csproj",
+              "RelativeDocumentMoniker": "proyectoApiC#\\proyectoApiC#.csproj",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.csproj",
+              "RelativeToolTip": "proyectoApiC#\\proyectoApiC#.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:35.549Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-24T05:08:09.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PacienteService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\PacienteService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\PacienteService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\PacienteService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\PacienteService.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\AuthService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\AuthService.cs",
+              "RelativeToolTip": "proyectoApiC#\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:31.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClienteService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\ClienteService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\ClienteService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\ClienteService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\ClienteService.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:17.215Z",
+              "WhenOpened": "2026-04-24T05:08:04.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Cita.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Models\\Cita.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
-              "RelativeToolTip": "proyectoApiC#\\Models\\Cita.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAcAAAAVAAAAAAAAAA==",
+              "Title": "PacienteDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:48.084Z",
+              "WhenOpened": "2026-04-05T04:45:43.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T04:45:25.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CitasController.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\CitasController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\CitasController.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\CitasController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\CitasController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Title": "ServicioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "ViewState": "AgIAABoAAAAAZmZmZiYgwBAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:55:54.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-05T04:45:02.408Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CitaService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\CitaService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\CitaService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\CitaService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\CitaService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Title": "ClienteDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:53.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-05T04:44:43.168Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\UsuarioService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "VeterinarioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:43.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-05T04:43:48.636Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Properties\\launchSettings.json",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Properties\\launchSettings.json",
-              "RelativeToolTip": "proyectoApiC#\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-13T00:19:50.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Data\\AppDbContext.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "proyectoApiC#\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Title": "Cita.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\Models\\Cita.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
+              "RelativeToolTip": "proyectoApiC#\\Models\\Cita.cs",
+              "ViewState": "AgIAAAsAAABAZmZmZmYswAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:07.84Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ClientesController.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\ClientesController.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\ClientesController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:16:45.44Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\appsettings.Development.json",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\appsettings.Development.json",
-              "RelativeToolTip": "proyectoApiC#\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-12T23:57:04.507Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PacientesController.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\PacientesController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\PacientesController.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Controllers\\PacientesController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\PacientesController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:19:11.745Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "proyectoApiC#.http",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.http",
-              "RelativeDocumentMoniker": "proyectoApiC#\\proyectoApiC#.http",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.http",
-              "RelativeToolTip": "proyectoApiC#\\proyectoApiC#.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-04-12T23:57:09.03Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\appsettings.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\appsettings.json",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\appsettings.json",
-              "RelativeToolTip": "proyectoApiC#\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-12T23:57:11.311Z"
+              "WhenOpened": "2026-04-12T23:56:48.084Z"
             }
           ]
         }

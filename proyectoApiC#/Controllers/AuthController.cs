@@ -34,15 +34,15 @@ namespace proyectoApiC_.Controllers
 
                 if (usuario == null)
                 {
-                    _logger.LogWarning($"Fallo el login para el usuaio: {loginDto.NombreUsuario}");
-                    return Unauthorized(new { message = "Invalid credentials" });
+                    _logger.LogWarning($"Intento de login fallido para el correo: {loginDto.Correo}");
+                    return Unauthorized(new { message = "Credenciales incorrectas" });
                 }
 
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                    new Claim(ClaimTypes.Name, usuario.NombreUsuario),
-                    new Claim(ClaimTypes.Email, usuario.Email),
+                    new Claim(ClaimTypes.Name, $"{usuario.Nombre} {usuario.Apellido}"),
+                    new Claim(ClaimTypes.Email, usuario.Correo),
                     new Claim(ClaimTypes.Role, usuario.Rol)
                 };
 
@@ -50,7 +50,7 @@ namespace proyectoApiC_.Controllers
                 var authProperties = new AuthenticationProperties
                 {
                     IsPersistent = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24) // Cookie expires in 24 hours
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24)
                 };
 
                 await HttpContext.SignInAsync(
@@ -59,18 +59,14 @@ namespace proyectoApiC_.Controllers
                     authProperties
                 );
 
-                _logger.LogInformation($"Usuario logeado correctamente: {usuario.NombreUsuario}");
+                _logger.LogInformation($"Usuario logueado correctamente: {usuario.Correo}");
 
-                return Ok(new
-                {
-                    message = "Login successful",
-                    user = usuario
-                });
+                return Ok(new { message = "Login exitoso", user = usuario });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Login error: {ex.Message}");
-                return StatusCode(500, new { message = "Ocurrio un error en el login" });
+                _logger.LogError(ex, "Error crítico durante el login");
+                return StatusCode(500, new { message = "Ocurrió un error interno en el servidor" });
             }
         }
 
@@ -87,22 +83,21 @@ namespace proyectoApiC_.Controllers
 
                 if (usuario == null)
                 {
-                    _logger.LogWarning($"Fallo el registro intentente nuevamente: {registerDto.NombreUsuario}");
-                    return BadRequest(new { message = "Usuario ya existe inicie session" });
+                    return BadRequest(new { message = "No se pudo registrar el usuario, verifique los datos" });
                 }
 
-                _logger.LogInformation($"Usuario registrado correctamente: {usuario.NombreUsuario}");
+                _logger.LogInformation($"Usuario registrado: {usuario.Correo}");
 
                 return CreatedAtAction(nameof(GetCurrentUser), new { id = usuario.Id }, new
                 {
-                    message = "Registro successful",
+                    message = "Registro exitoso",
                     user = usuario
                 });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Registro error: {ex.Message}");
-                return StatusCode(500, new { message = "An error occurred during registration" });
+                _logger.LogError(ex, "Error en el registro");
+                return StatusCode(500, new { message = "Ocurrió un error al registrar el usuario" });
             }
         }
 
@@ -113,23 +108,21 @@ namespace proyectoApiC_.Controllers
             try
             {
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-                if (userIdClaim == null)
+                if (userIdClaim == null) return Unauthorized();
+
+                if (!long.TryParse(userIdClaim.Value, out long userId))
                     return Unauthorized();
 
-                if (!int.TryParse(userIdClaim.Value, out int userId))
-                    return Unauthorized();
+                var usuario = await _authService.GetUserByIdAsync((int)userId);
 
-                var usuario = await _authService.GetUserByIdAsync(userId);
-
-                if (usuario == null)
-                    return NotFound();
+                if (usuario == null) return NotFound();
 
                 return Ok(usuario);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error al traer  al usuario: {ex.Message}");
-                return StatusCode(500, new { message = "An error occurred" });
+                _logger.LogError(ex, "Error al recuperar perfil de usuario");
+                return StatusCode(500, new { message = "Error al obtener usuario" });
             }
         }
 
@@ -139,18 +132,15 @@ namespace proyectoApiC_.Controllers
         {
             try
             {
-                var userName = User.FindFirst(ClaimTypes.Name)?.Value ?? "Desconocido";
-
+                var email = User.FindFirst(ClaimTypes.Email)?.Value ?? "Desconocido";
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-                _logger.LogInformation($"Usuario desconectado: {userName}");
-
-                return Ok(new { message = "Logout successful" });
+                _logger.LogInformation($"Usuario desconectado: {email}");
+                return Ok(new { message = "Logout exitoso" });
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Logout error: {ex.Message}");
-                return StatusCode(500, new { message = "surgio un error en el logout" });
+                _logger.LogError(ex, "Error en el logout");
+                return StatusCode(500, new { message = "Error al cerrar sesión" });
             }
         }
     }
