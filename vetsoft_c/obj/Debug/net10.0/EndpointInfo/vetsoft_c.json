@@ -1,17 +1,9 @@
 {
-  "openapi": "3.1.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "vetsoft_c | v1",
-    "version": "1.0.0"
+    "title": "vetsoft_c",
+    "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://localhost:7021"
-    },
-    {
-      "url": "http://localhost:5235"
-    }
-  ],
   "paths": {
     "/api/Auth/login": {
       "post": {
@@ -35,8 +27,7 @@
                 "$ref": "#/components/schemas/UsuarioLoginDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -67,8 +58,7 @@
                 "$ref": "#/components/schemas/UsuarioCreateDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -88,11 +78,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -162,8 +148,7 @@
                 "$ref": "#/components/schemas/Cita"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -248,11 +233,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -290,11 +271,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -316,8 +293,7 @@
                 "$ref": "#/components/schemas/Cita"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -352,11 +328,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -426,8 +398,7 @@
                 "$ref": "#/components/schemas/Cliente"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -761,11 +732,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -787,8 +754,7 @@
                 "$ref": "#/components/schemas/Cliente"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -823,11 +789,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -850,31 +812,19 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "pattern": "^-?(?:0|[1-9]\\d*)$",
-                  "type": [
-                    "integer",
-                    "string"
-                  ],
+                  "type": "integer",
                   "format": "int64"
                 }
               },
               "application/json": {
                 "schema": {
-                  "pattern": "^-?(?:0|[1-9]\\d*)$",
-                  "type": [
-                    "integer",
-                    "string"
-                  ],
+                  "type": "integer",
                   "format": "int64"
                 }
               },
               "text/json": {
                 "schema": {
-                  "pattern": "^-?(?:0|[1-9]\\d*)$",
-                  "type": [
-                    "integer",
-                    "string"
-                  ],
+                  "type": "integer",
                   "format": "int64"
                 }
               }
@@ -894,11 +844,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -968,8 +914,7 @@
                 "$ref": "#/components/schemas/Paciente"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1054,11 +999,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1096,11 +1037,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1122,8 +1059,7 @@
                 "$ref": "#/components/schemas/Paciente"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1158,11 +1094,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1232,8 +1164,7 @@
                 "$ref": "#/components/schemas/Servicio"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1356,11 +1287,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1398,11 +1325,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1424,8 +1347,7 @@
                 "$ref": "#/components/schemas/Servicio"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1460,11 +1382,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1534,8 +1452,7 @@
                 "$ref": "#/components/schemas/Usuario"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1620,11 +1537,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1662,11 +1575,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1688,8 +1597,7 @@
                 "$ref": "#/components/schemas/Usuario"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1724,11 +1632,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1798,8 +1702,7 @@
                 "$ref": "#/components/schemas/Veterinario"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1884,11 +1787,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1926,11 +1825,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -1952,8 +1847,7 @@
                 "$ref": "#/components/schemas/Veterinario"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -1988,11 +1882,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int64"
             }
           }
@@ -2015,11 +1905,7 @@
         "type": "object",
         "properties": {
           "idCita": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2034,104 +1920,61 @@
           "motivo": {
             "maxLength": 255,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "notas": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "diagnostico": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "tratamiento": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "estado": {
             "maxLength": 50,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "idPaciente": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "paciente": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Paciente"
-              }
-            ]
+            "$ref": "#/components/schemas/Paciente"
           },
           "idVeterinario": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "veterinario": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Veterinario"
-              }
-            ]
+            "$ref": "#/components/schemas/Veterinario"
           },
           "idServicio": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "servicio": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Servicio"
-              }
-            ]
+            "$ref": "#/components/schemas/Servicio"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Cliente": {
         "required": [
+          "apellido",
           "codigo",
-          "nombre",
-          "apellido"
+          "nombre"
         ],
         "type": "object",
         "properties": {
           "idCliente": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2152,54 +1995,43 @@
           "correo": {
             "maxLength": 150,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "telefono": {
             "maxLength": 20,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "direccion": {
             "maxLength": 255,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "ciudad": {
             "maxLength": 100,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "estado": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Paciente": {
         "required": [
           "codigo",
-          "nombre",
-          "especie"
+          "especie",
+          "nombre"
         ],
         "type": "object",
         "properties": {
           "idPaciente": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2220,68 +2052,50 @@
           "raza": {
             "maxLength": 50,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "edad": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "null",
-              "integer",
-              "string"
-            ],
-            "format": "int32"
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "peso": {
-            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
-            "type": [
-              "null",
-              "number",
-              "string"
-            ],
-            "format": "double"
+            "type": "number",
+            "format": "double",
+            "nullable": true
           },
           "color": {
             "maxLength": 100,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "alergias": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "estado": {
             "type": "boolean"
           },
           "idCliente": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "cliente": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Cliente"
-              }
-            ]
+            "$ref": "#/components/schemas/Cliente"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Rol": {
-        "type": "integer"
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "Servicio": {
         "required": [
@@ -2292,11 +2106,7 @@
         "type": "object",
         "properties": {
           "idServicio": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2310,50 +2120,37 @@
             "type": "string"
           },
           "descripcion": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "precio": {
-            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
-            "type": [
-              "number",
-              "string"
-            ],
+            "type": "number",
             "format": "double"
           },
           "duracionEstimada": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "null",
-              "integer",
-              "string"
-            ],
-            "format": "int32"
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "estado": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Usuario": {
         "required": [
-          "codigo",
-          "nombre",
           "apellido",
-          "correo",
+          "codigo",
           "contrasena",
+          "correo",
+          "nombre",
           "rolString"
         ],
         "type": "object",
         "properties": {
           "idUsuario": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2377,6 +2174,7 @@
             "type": "string"
           },
           "contrasena": {
+            "minLength": 1,
             "type": "string"
           },
           "rolString": {
@@ -2390,15 +2188,16 @@
           "estado": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "UsuarioCreateDTO": {
         "required": [
-          "codigo",
-          "nombre",
           "apellido",
-          "correo",
+          "codigo",
           "contrasena",
+          "correo",
+          "nombre",
           "rol"
         ],
         "type": "object",
@@ -2421,7 +2220,8 @@
           "correo": {
             "maxLength": 150,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "format": "email"
           },
           "contrasena": {
             "maxLength": 255,
@@ -2433,37 +2233,38 @@
             "minLength": 0,
             "type": "string"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "UsuarioLoginDTO": {
         "required": [
-          "correo",
-          "contrasena"
+          "contrasena",
+          "correo"
         ],
         "type": "object",
         "properties": {
           "correo": {
-            "type": "string"
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
           },
           "contrasena": {
+            "minLength": 1,
             "type": "string"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Veterinario": {
         "required": [
+          "apellido",
           "codigo",
-          "nombre",
-          "apellido"
+          "nombre"
         ],
         "type": "object",
         "properties": {
           "idVeterinario": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int64"
           },
           "codigo": {
@@ -2484,39 +2285,32 @@
           "numeroColegiado": {
             "maxLength": 50,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "especialidad": {
             "maxLength": 100,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "correo": {
             "maxLength": 150,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "telefono": {
             "maxLength": 20,
             "minLength": 0,
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "estado": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },

@@ -1,5 +1,5 @@
 {
-  "descripcion": "Conjunto completo de pruebas para API Veterinaria por rol y función CRUD",
+  "descripcion": "VetSoft CRUD",
   "base_url": "http://localhost:5000/api",
   "version": "1.0",
 
