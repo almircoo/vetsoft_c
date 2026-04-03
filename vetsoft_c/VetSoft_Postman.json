@@ -1,0 +1,520 @@
+{
+  "info": {
+    "name": "API VetSoft",
+    "description": "Colección Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Autenticación",
+      "item": [
+        {
+          "name": "Login - ADMIN",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.environment.set('token', jsonData.user.idUsuario);",
+                  "    pm.environment.set('usuario_rol', jsonData.user.rol);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"correo\": \"admin@veterinaria.com\",\n  \"contrasena\": \"Admin123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [ "{{base_url}}" ],
+              "path": [ "auth", "login" ]
+            }
+          }
+        },
+        {
+          "name": "Login - VETERINARIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"correo\": \"vet.maria@veterinaria.com\",\n  \"contrasena\": \"Vet123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [ "{{base_url}}" ],
+              "path": [ "auth", "login" ]
+            }
+          }
+        },
+        {
+          "name": "Login - USUARIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"correo\": \"cliente.juan@email.com\",\n  \"contrasena\": \"User123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [ "{{base_url}}" ],
+              "path": [ "auth", "login" ]
+            }
+          }
+        },
+        {
+          "name": "Registrar Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"USU_POSTMAN001\",\n  \"nombre\": \"Patricia\",\n  \"apellido\": \"Martínez\",\n  \"correo\": \"patricia.martinez@email.com\",\n  \"contrasena\": \"Patricia123456\",\n  \"rol\": \"USUARIO\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [ "{{base_url}}" ],
+              "path": [ "auth", "register" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Usuario Actual",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/{{usuario_id}}",
+              "host": [ "{{base_url}}" ],
+              "path": [ "auth", "{{usuario_id}}" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Crear Cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"CLI_POSTMAN001\",\n  \"nombre\": \"Jorge\",\n  \"apellido\": \"Fernández\",\n  \"correo\": \"jorge.fernandez@email.com\",\n  \"telefono\": \"+34-923456789\",\n  \"direccion\": \"Calle Principal 123\",\n  \"ciudad\": \"Madrid\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/clientes",
+              "host": [ "{{base_url}}" ],
+              "path": [ "clientes" ]
+            }
+          }
+        },
+        {
+          "name": "Listar Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/clientes",
+              "host": [ "{{base_url}}" ],
+              "path": [ "clientes" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cliente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/clientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "clientes", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez García\",\n  \"telefono\": \"+34-912999999\",\n  \"ciudad\": \"Barcelona\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/clientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "clientes", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/clientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "clientes", "1" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pacientes",
+      "item": [
+        {
+          "name": "Crear Paciente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PAC_POSTMAN001\",\n  \"nombre\": \"Firulais\",\n  \"especie\": \"Perro\",\n  \"raza\": \"Golden Retriever\",\n  \"edad\": 5,\n  \"peso\": 28.5,\n  \"color\": \"Marrón claro\",\n  \"alergias\": \"Trigo\",\n  \"idCliente\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pacientes",
+              "host": [ "{{base_url}}" ],
+              "path": [ "pacientes" ]
+            }
+          }
+        },
+        {
+          "name": "Listar Pacientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pacientes",
+              "host": [ "{{base_url}}" ],
+              "path": [ "pacientes" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Paciente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pacientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "pacientes", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Paciente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mimi\",\n  \"edad\": 4,\n  \"peso\": 4.5,\n  \"alergias\": \"Pescado\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pacientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "pacientes", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Paciente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pacientes/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "pacientes", "1" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Veterinarios",
+      "item": [
+        {
+          "name": "Crear Veterinario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"VET_POSTMAN001\",\n  \"nombre\": \"Pedro\",\n  \"apellido\": \"Sánchez\",\n  \"correo\": \"vet.pedro@veterinaria.com\",\n  \"telefono\": \"+34-923999888\",\n  \"especialidad\": \"Cirugía\",\n  \"numeroColegiado\": \"CV-1234567\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/veterinarios",
+              "host": [ "{{base_url}}" ],
+              "path": [ "veterinarios" ]
+            }
+          }
+        },
+        {
+          "name": "Listar Veterinarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/veterinarios",
+              "host": [ "{{base_url}}" ],
+              "path": [ "veterinarios" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Veterinario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/veterinarios/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "veterinarios", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Veterinario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"especialidad\": \"Medicina General y Urgencias\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/veterinarios/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "veterinarios", "1" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Servicios",
+      "item": [
+        {
+          "name": "Crear Servicio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"SRV_POSTMAN001\",\n  \"nombre\": \"Limpieza dental\",\n  \"descripcion\": \"Limpieza profesional de dientes y encías\",\n  \"precio\": 85.50,\n  \"duracionEstimada\": 45\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/servicios",
+              "host": [ "{{base_url}}" ],
+              "path": [ "servicios" ]
+            }
+          }
+        },
+        {
+          "name": "Listar Servicios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/servicios",
+              "host": [ "{{base_url}}" ],
+              "path": [ "servicios" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Servicio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/servicios/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "servicios", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Servicio",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"precio\": 50.00,\n  \"duracionEstimada\": 45\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/servicios/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "servicios", "1" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Citas",
+      "item": [
+        {
+          "name": "Crear Cita",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"CIT_POSTMAN001\",\n  \"fechaHora\": \"2024-05-15T14:30:00\",\n  \"motivo\": \"Revisión post-operatoria\",\n  \"idPaciente\": 1,\n  \"idVeterinario\": 1,\n  \"idServicio\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/citas",
+              "host": [ "{{base_url}}" ],
+              "path": [ "citas" ]
+            }
+          }
+        },
+        {
+          "name": "Listar Citas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/citas",
+              "host": [ "{{base_url}}" ],
+              "path": [ "citas" ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cita",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/citas/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "citas", "1" ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Cita",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"diagnostico\": \"Paciente sano\",\n  \"tratamiento\": \"Vacuna puesta\",\n  \"estado\": \"Completada\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/citas/1",
+              "host": [ "{{base_url}}" ],
+              "path": [ "citas", "1" ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "usuario_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "usuario_rol",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

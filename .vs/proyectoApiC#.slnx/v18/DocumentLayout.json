@@ -35,7 +35,7 @@
               "RelativeDocumentMoniker": "proyectoApiC#\\Services\\PacienteService.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Services\\PacienteService.cs",
               "RelativeToolTip": "proyectoApiC#\\Services\\PacienteService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-01-01T02:11:42.027Z",
               "EditorCaption": ""
@@ -50,7 +50,8 @@
               "RelativeToolTip": "proyectoApiC#\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-01-01T02:08:59.083Z"
+              "WhenOpened": "2023-01-01T02:08:59.083Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -62,7 +63,8 @@
               "RelativeToolTip": "proyectoApiC#\\Services\\AuthService.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAawA8AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-01-01T01:59:21.512Z"
+              "WhenOpened": "2023-01-01T01:59:21.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -74,7 +76,8 @@
               "RelativeToolTip": "proyectoApiC#\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAACAMTMzM7MiwAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-01-01T01:52:46.1Z"
+              "WhenOpened": "2023-01-01T01:52:46.1Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -86,7 +89,8 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAABYAAAAgMzMzMzMmwC4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-01-01T01:39:28.053Z"
+              "WhenOpened": "2023-01-01T01:39:28.053Z",
+              "EditorCaption": ""
             }
           ]
         }

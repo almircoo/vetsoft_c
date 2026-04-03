@@ -1,0 +1,1195 @@
+{
+  "descripcion": "Conjunto completo de pruebas para API Veterinaria por rol y función CRUD",
+  "base_url": "http://localhost:5000/api",
+  "version": "1.0",
+
+  "autenticacion": {
+    "descripcion": "Endpoints de autenticación - Disponibles para todos",
+    "login": {
+      "endpoint": "POST /api/auth/login",
+      "descripcion": "Login de usuario existente",
+      "usuarios_prueba": [
+        {
+          "rol": "ADMIN",
+          "correo": "admin@veterinaria.com",
+          "contrasena": "Admin123456",
+          "request": {
+            "correo": "admin@veterinaria.com",
+            "contrasena": "Admin123456"
+          },
+          "response_esperado": {
+            "message": "Login exitoso",
+            "user": {
+              "idUsuario": 1,
+              "codigo": "ADM001",
+              "nombre": "Carlos",
+              "apellido": "García",
+              "correo": "admin@veterinaria.com",
+              "rol": "ADMIN",
+              "estado": true
+            }
+          }
+        },
+        {
+          "rol": "VETERINARIO",
+          "correo": "vet.maria@veterinaria.com",
+          "contrasena": "Vet123456",
+          "request": {
+            "correo": "vet.maria@veterinaria.com",
+            "contrasena": "Vet123456"
+          },
+          "response_esperado": {
+            "message": "Login exitoso",
+            "user": {
+              "idUsuario": 2,
+              "codigo": "VET001",
+              "nombre": "María",
+              "apellido": "López",
+              "correo": "vet.maria@veterinaria.com",
+              "rol": "VETERINARIO",
+              "estado": true
+            }
+          }
+        },
+        {
+          "rol": "USUARIO",
+          "correo": "cliente.juan@email.com",
+          "contrasena": "User123456",
+          "request": {
+            "correo": "cliente.juan@email.com",
+            "contrasena": "User123456"
+          },
+          "response_esperado": {
+            "message": "Login exitoso",
+            "user": {
+              "idUsuario": 3,
+              "codigo": "USU001",
+              "nombre": "Juan",
+              "apellido": "Rodríguez",
+              "correo": "cliente.juan@email.com",
+              "rol": "USUARIO",
+              "estado": true
+            }
+          }
+        }
+      ]
+    },
+    "register": {
+      "endpoint": "POST /api/auth/register",
+      "descripcion": "Registro de nuevo usuario",
+      "request": {
+        "codigo": "USU_NEW001",
+        "nombre": "Patricia",
+        "apellido": "Martínez",
+        "correo": "patricia.martinez@email.com",
+        "contrasena": "Patricia123456",
+        "rol": "USUARIO"
+      },
+      "response_esperado": {
+        "message": "Registro exitoso",
+        "user": {
+          "idUsuario": 10,
+          "codigo": "USU_NEW001",
+          "nombre": "Patricia",
+          "apellido": "Martínez",
+          "correo": "patricia.martinez@email.com",
+          "rol": "USUARIO",
+          "estado": true
+        }
+      }
+    }
+  },
+
+  "clientes": {
+    "descripcion": "CRUD de Clientes - Acceso: ADMIN, VETERINARIO (lectura), USUARIO (propio)",
+    "crear": {
+      "endpoint": "POST /api/clientes",
+      "rol_requerido": "ADMIN",
+      "request": {
+        "codigo": "CLI001",
+        "nombre": "Jorge",
+        "apellido": "Fernández",
+        "correo": "jorge.fernandez@email.com",
+        "telefono": "+34-923456789",
+        "direccion": "Calle Principal 123",
+        "ciudad": "Madrid"
+      },
+      "response_esperado": {
+        "message": "Cliente creado exitosamente",
+        "cliente": {
+          "idCliente": 5,
+          "codigo": "CLI001",
+          "nombre": "Jorge",
+          "apellido": "Fernández",
+          "correo": "jorge.fernandez@email.com",
+          "telefono": "+34-923456789",
+          "direccion": "Calle Principal 123",
+          "ciudad": "Madrid",
+          "estado": true
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/clientes/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idCliente": 1,
+        "codigo": "CLI_DEMO001",
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "correo": "juan.perez@email.com",
+        "telefono": "+34-912345678",
+        "direccion": "Avenida Secundaria 456",
+        "ciudad": "Barcelona",
+        "estado": true
+      }
+    },
+    "listar_todos": {
+      "endpoint": "GET /api/clientes",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "response_esperado": [
+        {
+          "idCliente": 1,
+          "codigo": "CLI_DEMO001",
+          "nombre": "Juan",
+          "apellido": "Pérez",
+          "correo": "juan.perez@email.com",
+          "telefono": "+34-912345678",
+          "direccion": "Avenida Secundaria 456",
+          "ciudad": "Barcelona",
+          "estado": true
+        },
+        {
+          "idCliente": 2,
+          "codigo": "CLI_DEMO002",
+          "nombre": "Ana",
+          "apellido": "González",
+          "correo": "ana.gonzalez@email.com",
+          "telefono": "+34-913456789",
+          "direccion": "Calle Tercera 789",
+          "ciudad": "Valencia",
+          "estado": true
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/clientes/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "nombre": "Juan",
+        "apellido": "Pérez García",
+        "telefono": "+34-912999999",
+        "ciudad": "Madrid"
+      },
+      "response_esperado": {
+        "message": "Cliente actualizado exitosamente",
+        "cliente": {
+          "idCliente": 1,
+          "codigo": "CLI_DEMO001",
+          "nombre": "Juan",
+          "apellido": "Pérez García",
+          "correo": "juan.perez@email.com",
+          "telefono": "+34-912999999",
+          "direccion": "Avenida Secundaria 456",
+          "ciudad": "Madrid",
+          "estado": true
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/clientes/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Cliente eliminado exitosamente"
+      },
+      "nota": "Eliminación lógica: Estado cambia a false"
+    }
+  },
+
+  "pacientes": {
+    "descripcion": "CRUD de Pacientes (Mascotas) - Acceso: ADMIN, VETERINARIO, USUARIO (del cliente)",
+    "crear": {
+      "endpoint": "POST /api/pacientes",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "request": {
+        "codigo": "PAC001",
+        "nombre": "Firulais",
+        "especie": "Perro",
+        "raza": "Golden Retriever",
+        "edad": 5,
+        "peso": 28.5,
+        "color": "Marrón claro",
+        "alergias": "Trigo",
+        "idCliente": 1
+      },
+      "response_esperado": {
+        "message": "Paciente creado exitosamente",
+        "paciente": {
+          "idPaciente": 10,
+          "codigo": "PAC001",
+          "nombre": "Firulais",
+          "especie": "Perro",
+          "raza": "Golden Retriever",
+          "edad": 5,
+          "peso": 28.5,
+          "color": "Marrón claro",
+          "alergias": "Trigo",
+          "estado": true,
+          "idCliente": 1
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/pacientes/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idPaciente": 1,
+        "codigo": "PAC_DEMO001",
+        "nombre": "Mimi",
+        "especie": "Gato",
+        "raza": "Siamés",
+        "edad": 3,
+        "peso": 4.2,
+        "color": "Blanco y marrón",
+        "alergias": null,
+        "estado": true,
+        "idCliente": 1,
+        "cliente": {
+          "idCliente": 1,
+          "nombre": "Juan",
+          "apellido": "Pérez"
+        }
+      }
+    },
+    "listar_por_cliente": {
+      "endpoint": "GET /api/pacientes?clienteId={id}",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "parametros": {
+        "clienteId": 1
+      },
+      "response_esperado": [
+        {
+          "idPaciente": 1,
+          "codigo": "PAC_DEMO001",
+          "nombre": "Mimi",
+          "especie": "Gato",
+          "raza": "Siamés",
+          "edad": 3,
+          "peso": 4.2,
+          "color": "Blanco y marrón",
+          "alergias": null,
+          "estado": true,
+          "idCliente": 1
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/pacientes/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "nombre": "Mimi",
+        "edad": 4,
+        "peso": 4.5,
+        "alergias": "Pescado"
+      },
+      "response_esperado": {
+        "message": "Paciente actualizado exitosamente",
+        "paciente": {
+          "idPaciente": 1,
+          "codigo": "PAC_DEMO001",
+          "nombre": "Mimi",
+          "especie": "Gato",
+          "raza": "Siamés",
+          "edad": 4,
+          "peso": 4.5,
+          "color": "Blanco y marrón",
+          "alergias": "Pescado",
+          "estado": true,
+          "idCliente": 1
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/pacientes/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Paciente eliminado exitosamente"
+      }
+    }
+  },
+
+  "veterinarios": {
+    "descripcion": "CRUD de Veterinarios - Acceso: ADMIN (completo), VETERINARIO (lectura propia), USUARIO (lectura)",
+    "crear": {
+      "endpoint": "POST /api/veterinarios",
+      "rol_requerido": "ADMIN",
+      "request": {
+        "codigo": "VET002",
+        "nombre": "Pedro",
+        "apellido": "Sánchez",
+        "correo": "vet.pedro@veterinaria.com",
+        "telefono": "+34-923999888",
+        "especialidad": "Cirugía",
+        "numeroColegiado": "CV-1234567"
+      },
+      "response_esperado": {
+        "message": "Veterinario creado exitosamente",
+        "veterinario": {
+          "idVeterinario": 3,
+          "codigo": "VET002",
+          "nombre": "Pedro",
+          "apellido": "Sánchez",
+          "correo": "vet.pedro@veterinaria.com",
+          "telefono": "+34-923999888",
+          "especialidad": "Cirugía",
+          "numeroColegiado": "CV-1234567",
+          "estado": true
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/veterinarios/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idVeterinario": 1,
+        "codigo": "VET_DEMO001",
+        "nombre": "Dr. Roberto",
+        "apellido": "Martínez",
+        "correo": "vet.roberto@veterinaria.com",
+        "telefono": "+34-920111222",
+        "especialidad": "Medicina General",
+        "numeroColegiado": "CV-0000001",
+        "estado": true
+      }
+    },
+    "listar_todos": {
+      "endpoint": "GET /api/veterinarios",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "response_esperado": [
+        {
+          "idVeterinario": 1,
+          "codigo": "VET_DEMO001",
+          "nombre": "Dr. Roberto",
+          "apellido": "Martínez",
+          "correo": "vet.roberto@veterinaria.com",
+          "especialidad": "Medicina General",
+          "numeroColegiado": "CV-0000001",
+          "estado": true
+        },
+        {
+          "idVeterinario": 2,
+          "codigo": "VET_DEMO002",
+          "nombre": "Dra. Elena",
+          "apellido": "Rodríguez",
+          "correo": "vet.elena@veterinaria.com",
+          "especialidad": "Oftalmología",
+          "numeroColegiado": "CV-0000002",
+          "estado": true
+        }
+      ]
+    },
+    "listar_por_especialidad": {
+      "endpoint": "GET /api/veterinarios?especialidad={nombre}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "especialidad": "Cirugía"
+      },
+      "response_esperado": [
+        {
+          "idVeterinario": 3,
+          "codigo": "VET_DEMO003",
+          "nombre": "Dr. Luis",
+          "apellido": "García",
+          "especialidad": "Cirugía",
+          "estado": true
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/veterinarios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "nombre": "Roberto",
+        "apellido": "Martínez García",
+        "especialidad": "Medicina General y Urgencias"
+      },
+      "response_esperado": {
+        "message": "Veterinario actualizado exitosamente",
+        "veterinario": {
+          "idVeterinario": 1,
+          "codigo": "VET_DEMO001",
+          "nombre": "Roberto",
+          "apellido": "Martínez García",
+          "especialidad": "Medicina General y Urgencias",
+          "estado": true
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/veterinarios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Veterinario eliminado exitosamente"
+      }
+    }
+  },
+
+  "servicios": {
+    "descripcion": "CRUD de Servicios - Acceso: ADMIN (completo), VETERINARIO y USUARIO (lectura)",
+    "crear": {
+      "endpoint": "POST /api/servicios",
+      "rol_requerido": "ADMIN",
+      "request": {
+        "codigo": "SRV005",
+        "nombre": "Limpieza dental",
+        "descripcion": "Limpieza profesional de dientes y encías",
+        "precio": 85.50,
+        "duracionEstimada": 45
+      },
+      "response_esperado": {
+        "message": "Servicio creado exitosamente",
+        "servicio": {
+          "idServicio": 8,
+          "codigo": "SRV005",
+          "nombre": "Limpieza dental",
+          "descripcion": "Limpieza profesional de dientes y encías",
+          "precio": 85.50,
+          "duracionEstimada": 45,
+          "estado": true
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/servicios/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idServicio": 1,
+        "codigo": "SRV001",
+        "nombre": "Consulta General",
+        "descripcion": "Consulta veterinaria de rutina",
+        "precio": 45.00,
+        "duracionEstimada": 30,
+        "estado": true
+      }
+    },
+    "listar_todos": {
+      "endpoint": "GET /api/servicios",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "response_esperado": [
+        {
+          "idServicio": 1,
+          "codigo": "SRV001",
+          "nombre": "Consulta General",
+          "precio": 45.00,
+          "duracionEstimada": 30,
+          "estado": true
+        },
+        {
+          "idServicio": 2,
+          "codigo": "SRV002",
+          "nombre": "Vacunación",
+          "precio": 35.00,
+          "duracionEstimada": 20,
+          "estado": true
+        },
+        {
+          "idServicio": 3,
+          "codigo": "SRV003",
+          "nombre": "Análisis de sangre",
+          "precio": 55.00,
+          "duracionEstimada": 25,
+          "estado": true
+        }
+      ]
+    },
+    "listar_por_rango_precio": {
+      "endpoint": "GET /api/servicios?precioMin={min}&precioMax={max}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "precioMin": 30,
+        "precioMax": 60
+      },
+      "response_esperado": [
+        {
+          "idServicio": 1,
+          "codigo": "SRV001",
+          "nombre": "Consulta General",
+          "precio": 45.00,
+          "estado": true
+        },
+        {
+          "idServicio": 2,
+          "codigo": "SRV002",
+          "nombre": "Vacunación",
+          "precio": 35.00,
+          "estado": true
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/servicios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "nombre": "Consulta General Ampliada",
+        "precio": 50.00,
+        "duracionEstimada": 45
+      },
+      "response_esperado": {
+        "message": "Servicio actualizado exitosamente",
+        "servicio": {
+          "idServicio": 1,
+          "codigo": "SRV001",
+          "nombre": "Consulta General Ampliada",
+          "precio": 50.00,
+          "duracionEstimada": 45,
+          "estado": true
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/servicios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Servicio eliminado exitosamente"
+      }
+    }
+  },
+
+  "citas": {
+    "descripcion": "CRUD de Citas - Acceso: ADMIN (completo), VETERINARIO y USUARIO (propia)",
+    "crear": {
+      "endpoint": "POST /api/citas",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "request": {
+        "codigo": "CIT005",
+        "fechaHora": "2024-05-15T14:30:00",
+        "motivo": "Revisión post-operatoria",
+        "idPaciente": 1,
+        "idVeterinario": 1,
+        "idServicio": 1
+      },
+      "response_esperado": {
+        "message": "Cita creada exitosamente",
+        "cita": {
+          "idCita": 15,
+          "codigo": "CIT005",
+          "fechaHora": "2024-05-15T14:30:00",
+          "motivo": "Revisión post-operatoria",
+          "estado": "Programada",
+          "idPaciente": 1,
+          "idVeterinario": 1,
+          "idServicio": 1
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/citas/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idCita": 1,
+        "codigo": "CIT001",
+        "fechaHora": "2024-04-20T10:00:00",
+        "motivo": "Vacunación anual",
+        "notas": "Administrar vacuna antirrábica",
+        "diagnostico": null,
+        "tratamiento": null,
+        "estado": "Programada",
+        "idPaciente": 1,
+        "idVeterinario": 1,
+        "idServicio": 2,
+        "paciente": {
+          "idPaciente": 1,
+          "nombre": "Mimi",
+          "especie": "Gato"
+        },
+        "veterinario": {
+          "idVeterinario": 1,
+          "nombre": "Dr. Roberto",
+          "apellido": "Martínez"
+        },
+        "servicio": {
+          "idServicio": 2,
+          "nombre": "Vacunación",
+          "precio": 35.00
+        }
+      }
+    },
+    "listar_por_paciente": {
+      "endpoint": "GET /api/citas?pacienteId={id}",
+      "rol_requerido": "ADMIN, VETERINARIO, USUARIO",
+      "parametros": {
+        "pacienteId": 1
+      },
+      "response_esperado": [
+        {
+          "idCita": 1,
+          "codigo": "CIT001",
+          "fechaHora": "2024-04-20T10:00:00",
+          "motivo": "Vacunación anual",
+          "estado": "Programada",
+          "idPaciente": 1,
+          "idVeterinario": 1
+        },
+        {
+          "idCita": 2,
+          "codigo": "CIT002",
+          "fechaHora": "2024-04-25T15:30:00",
+          "motivo": "Revisión general",
+          "estado": "Completada",
+          "idPaciente": 1,
+          "idVeterinario": 1
+        }
+      ]
+    },
+    "listar_por_veterinario": {
+      "endpoint": "GET /api/citas?veterinarioId={id}",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "parametros": {
+        "veterinarioId": 1
+      },
+      "response_esperado": [
+        {
+          "idCita": 1,
+          "codigo": "CIT001",
+          "fechaHora": "2024-04-20T10:00:00",
+          "motivo": "Vacunación anual",
+          "estado": "Programada",
+          "idVeterinario": 1
+        }
+      ]
+    },
+    "listar_por_fecha_rango": {
+      "endpoint": "GET /api/citas?fechaInicio={inicio}&fechaFin={fin}",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "parametros": {
+        "fechaInicio": "2024-04-01",
+        "fechaFin": "2024-04-30"
+      },
+      "response_esperado": [
+        {
+          "idCita": 1,
+          "codigo": "CIT001",
+          "fechaHora": "2024-04-20T10:00:00",
+          "motivo": "Vacunación anual",
+          "estado": "Programada"
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/citas/{id}",
+      "rol_requerido": "ADMIN, VETERINARIO",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "fechaHora": "2024-04-22T11:00:00",
+        "motivo": "Vacunación anual - Reprogramada",
+        "notas": "Nota adicional del veterinario",
+        "diagnostico": "Paciente sano",
+        "tratamiento": "Vacuna puesta",
+        "estado": "Completada"
+      },
+      "response_esperado": {
+        "message": "Cita actualizada exitosamente",
+        "cita": {
+          "idCita": 1,
+          "codigo": "CIT001",
+          "fechaHora": "2024-04-22T11:00:00",
+          "motivo": "Vacunación anual - Reprogramada",
+          "notas": "Nota adicional del veterinario",
+          "diagnostico": "Paciente sano",
+          "tratamiento": "Vacuna puesta",
+          "estado": "Completada"
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/citas/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Cita eliminada exitosamente"
+      }
+    }
+  },
+
+  "usuarios": {
+    "descripcion": "CRUD de Usuarios - Acceso: ADMIN (completo), USUARIO (lectura propia)",
+    "crear": {
+      "endpoint": "POST /api/usuarios",
+      "rol_requerido": "ADMIN",
+      "request": {
+        "codigo": "USU_ADMIN002",
+        "nombre": "Fernando",
+        "apellido": "López",
+        "correo": "fernando.lopez@veterinaria.com",
+        "contrasena": "Fernando123456",
+        "rol": "ADMIN"
+      },
+      "response_esperado": {
+        "message": "Usuario creado exitosamente",
+        "usuario": {
+          "idUsuario": 11,
+          "codigo": "USU_ADMIN002",
+          "nombre": "Fernando",
+          "apellido": "López",
+          "correo": "fernando.lopez@veterinaria.com",
+          "rol": "ADMIN",
+          "estado": true
+        }
+      }
+    },
+    "leer": {
+      "endpoint": "GET /api/usuarios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "idUsuario": 1,
+        "codigo": "ADM001",
+        "nombre": "Carlos",
+        "apellido": "García",
+        "correo": "admin@veterinaria.com",
+        "rol": "ADMIN",
+        "estado": true
+      }
+    },
+    "listar_todos": {
+      "endpoint": "GET /api/usuarios",
+      "rol_requerido": "ADMIN",
+      "response_esperado": [
+        {
+          "idUsuario": 1,
+          "codigo": "ADM001",
+          "nombre": "Carlos",
+          "apellido": "García",
+          "correo": "admin@veterinaria.com",
+          "rol": "ADMIN",
+          "estado": true
+        },
+        {
+          "idUsuario": 2,
+          "codigo": "VET001",
+          "nombre": "María",
+          "apellido": "López",
+          "correo": "vet.maria@veterinaria.com",
+          "rol": "VETERINARIO",
+          "estado": true
+        }
+      ]
+    },
+    "actualizar": {
+      "endpoint": "PUT /api/usuarios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "request": {
+        "nombre": "Carlos",
+        "apellido": "García Ruiz",
+        "contrasena": "NewAdmin123456",
+        "estado": true
+      },
+      "response_esperado": {
+        "message": "Usuario actualizado exitosamente",
+        "usuario": {
+          "idUsuario": 1,
+          "codigo": "ADM001",
+          "nombre": "Carlos",
+          "apellido": "García Ruiz",
+          "correo": "admin@veterinaria.com",
+          "rol": "ADMIN",
+          "estado": true
+        }
+      }
+    },
+    "eliminar": {
+      "endpoint": "DELETE /api/usuarios/{id}",
+      "rol_requerido": "ADMIN",
+      "parametros": {
+        "id": 1
+      },
+      "response_esperado": {
+        "message": "Usuario eliminado exitosamente"
+      },
+      "nota": "Eliminación lógica: Estado cambia a false"
+    }
+  },
+
+  "matriz_permisos_por_rol": {
+    "ADMIN": {
+      "clientes": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      },
+      "pacientes": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      },
+      "veterinarios": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      },
+      "servicios": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      },
+      "citas": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      },
+      "usuarios": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": true
+      }
+    },
+    "VETERINARIO": {
+      "clientes": {
+        "crear": false,
+        "leer": true,
+        "actualizar": false,
+        "eliminar": false
+      },
+      "pacientes": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": false
+      },
+      "veterinarios": {
+        "crear": false,
+        "leer": true,
+        "actualizar": false,
+        "eliminar": false
+      },
+      "servicios": {
+        "crear": false,
+        "leer": true,
+        "actualizar": false,
+        "eliminar": false
+      },
+      "citas": {
+        "crear": true,
+        "leer": true,
+        "actualizar": true,
+        "eliminar": false
+      },
+      "usuarios": {
+        "crear": false,
+        "leer": false,
+        "actualizar": false,
+        "eliminar": false
+      }
+    },
+    "USUARIO": {
+      "clientes": {
+        "crear": false,
+        "leer": "propio",
+        "actualizar": "propio",
+        "eliminar": false
+      },
+      "pacientes": {
+        "crear": false,
+        "leer": "propio_cliente",
+        "actualizar": false,
+        "eliminar": false
+      },
+      "veterinarios": {
+        "crear": false,
+        "leer": true,
+        "actualizar": false,
+        "eliminar": false
+      },
+      "servicios": {
+        "crear": false,
+        "leer": true,
+        "actualizar": false,
+        "eliminar": false
+      },
+      "citas": {
+        "crear": true,
+        "leer": "propio",
+        "actualizar": "propio",
+        "eliminar": false
+      },
+      "usuarios": {
+        "crear": false,
+        "leer": "propio",
+        "actualizar": "propio",
+        "eliminar": false
+      }
+    }
+  },
+
+  "flujos_prueba_completos": {
+    "flujo_usuario_nuevo": {
+      "descripcion": "Flujo completo de un nuevo usuario registrándose y creando una cita",
+      "pasos": [
+        {
+          "numero": 1,
+          "accion": "Registrar nuevo usuario",
+          "endpoint": "POST /api/auth/register",
+          "datos": {
+            "codigo": "USU_NEW002",
+            "nombre": "Sofía",
+            "apellido": "García",
+            "correo": "sofia.garcia@email.com",
+            "contrasena": "Sofia123456",
+            "rol": "USUARIO"
+          }
+        },
+        {
+          "numero": 2,
+          "accion": "Login con nuevo usuario",
+          "endpoint": "POST /api/auth/login",
+          "datos": {
+            "correo": "sofia.garcia@email.com",
+            "contrasena": "Sofia123456"
+          },
+          "token_necesario": true
+        },
+        {
+          "numero": 3,
+          "accion": "Ver datos del usuario",
+          "endpoint": "GET /api/auth/{idUsuario}",
+          "parametros": {
+            "idUsuario": "obtenido_del_login"
+          }
+        },
+        {
+          "numero": 4,
+          "accion": "Crear nueva cita para paciente existente",
+          "endpoint": "POST /api/citas",
+          "datos": {
+            "codigo": "CIT_NEW001",
+            "fechaHora": "2024-05-20T16:00:00",
+            "motivo": "Vacunación del cachorro",
+            "idPaciente": 1,
+            "idVeterinario": 1,
+            "idServicio": 2
+          }
+        },
+        {
+          "numero": 5,
+          "accion": "Ver cita creada",
+          "endpoint": "GET /api/citas/{id}",
+          "parametros": {
+            "id": "obtenido_del_paso_4"
+          }
+        }
+      ]
+    },
+    "flujo_admin_gestion": {
+      "descripcion": "Flujo completo de un admin creando veterinario, servicio y asignando cita",
+      "pasos": [
+        {
+          "numero": 1,
+          "accion": "Login como ADMIN",
+          "endpoint": "POST /api/auth/login",
+          "datos": {
+            "correo": "admin@veterinaria.com",
+            "contrasena": "Admin123456"
+          },
+          "token_necesario": true
+        },
+        {
+          "numero": 2,
+          "accion": "Crear nuevo veterinario",
+          "endpoint": "POST /api/veterinarios",
+          "datos": {
+            "codigo": "VET_NEW001",
+            "nombre": "David",
+            "apellido": "Núñez",
+            "correo": "vet.david@veterinaria.com",
+            "telefono": "+34-924555555",
+            "especialidad": "Traumatología",
+            "numeroColegiado": "CV-9999999"
+          }
+        },
+        {
+          "numero": 3,
+          "accion": "Crear nuevo servicio",
+          "endpoint": "POST /api/servicios",
+          "datos": {
+            "codigo": "SRV_NEW001",
+            "nombre": "Radiografía digital",
+            "descripcion": "Radiografía digital con tecnología de última generación",
+            "precio": 120.00,
+            "duracionEstimada": 45
+          }
+        },
+        {
+          "numero": 4,
+          "accion": "Crear nueva cita con veterinario y servicio nuevos",
+          "endpoint": "POST /api/citas",
+          "datos": {
+            "codigo": "CIT_ADMIN001",
+            "fechaHora": "2024-05-25T09:30:00",
+            "motivo": "Radiografía de cadera",
+            "idPaciente": 1,
+            "idVeterinario": "obtenido_del_paso_2",
+            "idServicio": "obtenido_del_paso_3"
+          }
+        },
+        {
+          "numero": 5,
+          "accion": "Actualizar cita con diagnóstico",
+          "endpoint": "PUT /api/citas/{id}",
+          "datos": {
+            "diagnostico": "Displasia de cadera leve",
+            "tratamiento": "Fisioterapia 2 veces por semana",
+            "estado": "Completada"
+          }
+        }
+      ]
+    },
+    "flujo_veterinario_diario": {
+      "descripcion": "Flujo de un veterinario durante su jornada",
+      "pasos": [
+        {
+          "numero": 1,
+          "accion": "Login como VETERINARIO",
+          "endpoint": "POST /api/auth/login",
+          "datos": {
+            "correo": "vet.maria@veterinaria.com",
+            "contrasena": "Vet123456"
+          },
+          "token_necesario": true
+        },
+        {
+          "numero": 2,
+          "accion": "Ver citas del día",
+          "endpoint": "GET /api/citas?veterinarioId={idVeterinario}&fecha={hoy}",
+          "parametros": {
+            "idVeterinario": 2,
+            "fecha": "2024-04-20"
+          }
+        },
+        {
+          "numero": 3,
+          "accion": "Obtener detalles de paciente",
+          "endpoint": "GET /api/pacientes/{id}",
+          "parametros": {
+            "id": 1
+          }
+        },
+        {
+          "numero": 4,
+          "accion": "Actualizar cita con notas clínicas",
+          "endpoint": "PUT /api/citas/{id}",
+          "datos": {
+            "notas": "Paciente muy reactivo, se administró sedante leve",
+            "diagnostico": "Otitis externa bilateral",
+            "tratamiento": "Antibiótico tópico 2 veces al día durante 7 días",
+            "estado": "Completada"
+          }
+        },
+        {
+          "numero": 5,
+          "accion": "Ver todos los servicios disponibles",
+          "endpoint": "GET /api/servicios"
+        },
+        {
+          "numero": 6,
+          "accion": "Crear nueva cita para paciente",
+          "endpoint": "POST /api/citas",
+          "datos": {
+            "codigo": "CIT_SEGUIMIENTO001",
+            "fechaHora": "2024-04-27T11:00:00",
+            "motivo": "Seguimiento de otitis",
+            "idPaciente": 1,
+            "idVeterinario": 2,
+            "idServicio": 1
+          }
+        }
+      ]
+    }
+  },
+
+  "casos_error_comunes": [
+    {
+      "error": "401 Unauthorized",
+      "causa": "Token no proporcionado o expirado",
+      "solucion": "Hacer login nuevamente"
+    },
+    {
+      "error": "403 Forbidden",
+      "causa": "Usuario no tiene permisos para esta acción",
+      "solucion": "Verificar rol del usuario"
+    },
+    {
+      "error": "404 Not Found",
+      "causa": "Recurso no existe",
+      "solucion": "Verificar ID del recurso"
+    },
+    {
+      "error": "400 Bad Request",
+      "causa": "Datos inválidos en la solicitud",
+      "solucion": "Validar formato de datos según modelo"
+    },
+    {
+      "error": "409 Conflict",
+      "causa": "Código o email duplicado",
+      "solucion": "Usar código/email único"
+    },
+    {
+      "error": "500 Internal Server Error",
+      "causa": "Error en el servidor",
+      "solucion": "Verificar logs del servidor"
+    }
+  ]
+}
