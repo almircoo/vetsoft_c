@@ -23,7 +23,22 @@ namespace vetsoft_c.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Paciente>>> ObtenerTodos()
         {
-            return Ok(await _pacienteService.ObtenerTodos());
+            var pacientes = await _pacienteService.ObtenerTodos();
+            var response = pacientes.Select(p => new PacienteResponseDTO
+            {
+                Id = p.IdPaciente,
+                Codigo = p.Codigo,
+                Nombre = p.Nombre,
+                Especie = p.Especie,
+                Raza = p.Raza,
+                Edad = p.Edad,
+                Peso = p.Peso,
+                Color = p.Color,
+                Alergias = p.Alergias,
+                IdCliente = p.IdCliente
+            }).ToList();
+
+            return Ok(response);
         }
 
         [HttpGet("buscar/{termino}")]
