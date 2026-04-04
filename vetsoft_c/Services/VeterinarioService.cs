@@ -2,59 +2,61 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using vetsoft_c.Data;
 using vetsoft_c.Models;
+using vetsoft_c.Repositories;
 
 namespace vetsoft_c.Services
 {
     public class VeterinarioService
     {
-        private readonly AppDbContext _context;
+        private readonly IVeterinarioRepository _veterinarioRepository;
 
-        public VeterinarioService(AppDbContext context)
+        public VeterinarioService(IVeterinarioRepository veterinarioRepository)
         {
-            _context = context;
+            _veterinarioRepository = veterinarioRepository;
         }
 
         public async Task<List<Veterinario>> ObtenerTodos()
         {
-            return await _context.Veterinarios.ToListAsync();
+            var veterinarios = await _veterinarioRepository.GetAllAsync();
+            return veterinarios.ToList();
         }
 
         public async Task<List<Veterinario>> BusquedaGlobal(string? termino)
         {
+            var veterinarios = await _veterinarioRepository.GetAllAsync();
+
             if (string.IsNullOrWhiteSpace(termino))
             {
-                return await _context.Veterinarios.ToListAsync();
+                return veterinarios.ToList();
             }
 
             string t = termino.ToLower();
-            
-            return await _context.Veterinarios
-                .Where(v => 
+
+            return veterinarios
+                .Where(v =>
                     v.Codigo.ToLower().Contains(t) ||
                     v.Nombre.ToLower().Contains(t) ||
                     v.Apellido.ToLower().Contains(t) ||
                     (v.NumeroColegiado != null && v.NumeroColegiado.ToLower().Contains(t)))
-                .ToListAsync();
+                .ToList();
         }
 
         public async Task<Veterinario?> ObtenerPorId(long id)
         {
-            return await _context.Veterinarios.FindAsync(id);
+            return await _veterinarioRepository.GetByIdAsync((int)id);
         }
 
         public async Task<Veterinario> Crear(Veterinario veterinario)
         {
-            _context.Veterinarios.Add(veterinario);
-            await _context.SaveChangesAsync();
-            return veterinario;
+            var creado = await _veterinarioRepository.AddAsync(veterinario);
+            await _veterinarioRepository.SaveChangesAsync();
+            return creado;
         }
 
         public async Task<Veterinario> Actualizar(long id, Veterinario actualizado)
         {
-            var v = await _context.Veterinarios.FindAsync(id);
+            var v = await _veterinarioRepository.GetByIdAsync((int)id);
             if (v == null) throw new Exception("No encontrado");
 
             v.Nombre = actualizado.Nombre ?? v.Nombre;
@@ -65,17 +67,19 @@ namespace vetsoft_c.Services
             v.Telefono = actualizado.Telefono ?? v.Telefono;
             v.Estado = actualizado.Estado;
 
-            await _context.SaveChangesAsync();
+            await _veterinarioRepository.UpdateAsync(v);
+            await _veterinarioRepository.SaveChangesAsync();
             return v;
         }
 
         public async Task Eliminar(long id)
         {
-            var v = await _context.Veterinarios.FindAsync(id);
+            var v = await _veterinarioRepository.GetByIdAsync((int)id);
             if (v != null)
             {
                 v.Estado = false;
-                await _context.SaveChangesAsync();
+                await _veterinarioRepository.UpdateAsync(v);
+                await _veterinarioRepository.SaveChangesAsync();
             }
         }
     }

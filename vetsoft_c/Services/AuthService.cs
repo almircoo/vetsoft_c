@@ -2,20 +2,19 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using vetsoft_c.Data;
 using vetsoft_c.Models;
 using vetsoft_c.DTOs;
+using vetsoft_c.Repositories;
 
 namespace vetsoft_c.Services
 {
     public class AuthService
     {
-        private readonly AppDbContext _context;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public AuthService(AppDbContext context)
+        public AuthService(IUsuarioRepository usuarioRepository)
         {
-            _context = context;
+            _usuarioRepository = usuarioRepository;
         }
 
         public async Task<UsuarioResponseDTO?> LoginAsync(UsuarioLoginDTO loginDto)
@@ -23,9 +22,9 @@ namespace vetsoft_c.Services
             if (string.IsNullOrWhiteSpace(loginDto.Correo) || string.IsNullOrWhiteSpace(loginDto.Contrasena))
                 throw new ArgumentException("El correo y contraseña son requeridos");
 
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.Correo == loginDto.Correo && u.Estado);
+            var usuario = await _usuarioRepository.GetByCorreoAsync(loginDto.Correo);
 
-            if (usuario == null)
+            if (usuario == null || !usuario.Estado)
                 return null;
 
             if (!VerifyPassword(loginDto.Contrasena, usuario.Contrasena))
@@ -45,13 +44,12 @@ namespace vetsoft_c.Services
             if (string.IsNullOrWhiteSpace(registerDto.Contrasena))
                 throw new ArgumentException("La contraseña es requerida");
 
-            var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Correo == registerDto.Correo);
+            var existingUser = await _usuarioRepository.GetByCorreoAsync(registerDto.Correo);
             if (existingUser != null)
                 throw new ArgumentException("El correo ya está registrado");
 
             var usuario = new Usuario
             {
-                //Codigo = registerDto.Codigo,
                 Nombre = registerDto.Nombre,
                 Apellido = registerDto.Apellido,
                 Correo = registerDto.Correo,
@@ -60,16 +58,16 @@ namespace vetsoft_c.Services
                 Estado = true
             };
 
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
+            var creado = await _usuarioRepository.AddAsync(usuario);
+            await _usuarioRepository.SaveChangesAsync();
 
-            return MapToResponseDTO(usuario);
+            return MapToResponseDTO(creado);
         }
 
         public async Task<UsuarioResponseDTO?> ObtenerUsuarioPorId(long id)
         {
-            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == id && u.Estado);
-            return usuario == null ? null : MapToResponseDTO(usuario);
+            var usuario = await _usuarioRepository.GetByIdAsync((int)id);
+            return usuario != null && usuario.Estado ? MapToResponseDTO(usuario) : null;
         }
 
         public string HashPassword(string password)

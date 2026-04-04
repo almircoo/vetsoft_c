@@ -3,16 +3,34 @@
   "WorkspaceRootPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\servicioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\veterinarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\codigoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\citaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\dtos\\citadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\models\\cita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\repositories\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\controllers\\citascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\repositories\\icitarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\repositories\\citarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,63 +40,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServicioService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\ServicioService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\ServicioService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\ServicioService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\ServicioService.cs",
+              "ViewState": "AgIAADgAAACgZmZmZsYwwD4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:21:33.384Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CitaDTO.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\DTOs\\CitaDTO.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\DTOs\\CitaDTO.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\DTOs\\CitaDTO.cs",
-              "RelativeToolTip": "vetsoft_c\\DTOs\\CitaDTO.cs",
-              "ViewState": "AgIAAAwAAABQzMzMzCw8wA4AAAAsAAAAAAAAAA==",
+              "Title": "VeterinarioService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\VeterinarioService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\VeterinarioService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\VeterinarioService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\VeterinarioService.cs",
+              "ViewState": "AgIAABoAAAAAZ2ZmZmYawFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T16:36:30.685Z",
+              "WhenOpened": "2026-04-04T21:20:19.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Cita.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Models\\Cita.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\Models\\Cita.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Models\\Cita.cs",
-              "RelativeToolTip": "vetsoft_c\\Models\\Cita.cs",
-              "ViewState": "AgIAACgAAAAAMzMzMzMnwDsAAAAAAAAAAAAAAA==",
+              "Title": "CodigoService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CodigoService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\CodigoService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CodigoService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\CodigoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T16:35:08.213Z",
+              "WhenOpened": "2026-04-04T21:19:04.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CitasController.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\CitasController.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\Controllers\\CitasController.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\CitasController.cs",
-              "RelativeToolTip": "vetsoft_c\\Controllers\\CitasController.cs",
-              "ViewState": "AgIAADMAAACAODMzMzMZwFgAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ClienteService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\ClienteService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\ClienteService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\ClienteService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\ClienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T15:56:10.391Z",
+              "WhenOpened": "2026-04-04T21:18:35.549Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "CitaService.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CitaService.cs",
               "RelativeDocumentMoniker": "vetsoft_c\\Services\\CitaService.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CitaService.cs",
               "RelativeToolTip": "vetsoft_c\\Services\\CitaService.cs",
-              "ViewState": "AgIAAAoAAAAAaGZmZuYfwGMAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAADAzMzMzMwawFgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T15:53:07.592Z",
+              "WhenOpened": "2026-04-04T21:18:12.12Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\AuthService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\AuthService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\AuthService.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAUwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:18:00.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IClienteRepository.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\IClienteRepository.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Repositories\\IClienteRepository.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\IClienteRepository.cs",
+              "RelativeToolTip": "vetsoft_c\\Repositories\\IClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:16:31.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ICitaRepository.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\ICitaRepository.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Repositories\\ICitaRepository.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\ICitaRepository.cs",
+              "RelativeToolTip": "vetsoft_c\\Repositories\\ICitaRepository.cs",
+              "ViewState": "AgIAAAkAAAAAZmZmZmYQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:16:20.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CitaRepository.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\CitaRepository.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Repositories\\CitaRepository.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Repositories\\CitaRepository.cs",
+              "RelativeToolTip": "vetsoft_c\\Repositories\\CitaRepository.cs",
+              "ViewState": "AgIAADgAAAAAzczMzEwjwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:16:07.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Data\\AppDbContext.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "vetsoft_c\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAA8AAABAMzMzM7MdwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T21:15:41.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }
