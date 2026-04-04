@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace vetsoft_c.DTOs
 {
     public class PacienteResponseDTO
@@ -25,6 +27,8 @@ namespace vetsoft_c.DTOs
         public double? Peso { get; set; }
         public string? Color { get; set; }
         public string? Alergias { get; set; }
+
+        [JsonPropertyName("clienteId")]
         public long IdCliente { get; set; }
     }
 
