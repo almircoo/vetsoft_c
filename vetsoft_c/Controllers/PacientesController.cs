@@ -59,7 +59,7 @@ namespace vetsoft_c.Controllers
                     Peso = dto.Peso,
                     Color = dto.Color,
                     Alergias = dto.Alergias,
-                    IdCliente = dto.ClienteId,
+                    IdCliente = dto.IdCliente,
                     Estado = true
                 };
 
@@ -77,7 +77,7 @@ namespace vetsoft_c.Controllers
                     Color = creado.Color,
                     Alergias = creado.Alergias,
                     Estado = creado.Estado,
-                    ClienteId = creado.IdCliente
+                    IdCliente = creado.IdCliente
                 };
 
                 return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdPaciente }, response);
@@ -115,7 +115,7 @@ namespace vetsoft_c.Controllers
                     Peso = dto.Peso ?? pacienteExistente.Peso,
                     Color = dto.Color ?? pacienteExistente.Color,
                     Alergias = dto.Alergias ?? pacienteExistente.Alergias,
-                    IdCliente = dto.ClienteId ?? pacienteExistente.IdCliente,
+                    IdCliente = dto.IdCliente ?? pacienteExistente.IdCliente,
                     Estado = dto.Estado ?? pacienteExistente.Estado
                 };
 
@@ -133,7 +133,7 @@ namespace vetsoft_c.Controllers
                     Color = actualizado.Color,
                     Alergias = actualizado.Alergias,
                     Estado = actualizado.Estado,
-                    ClienteId = actualizado.IdCliente
+                    IdCliente = actualizado.IdCliente
                 };
 
                 return Ok(response);

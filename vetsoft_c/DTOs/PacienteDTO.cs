@@ -12,7 +12,7 @@ namespace vetsoft_c.DTOs
         public string? Color { get; set; }
         public string? Alergias { get; set; }
         public bool Estado { get; set; }
-        public long ClienteId { get; set; }
+        public long IdCliente { get; set; }
     }
 
     public class PacienteCreateDTO
@@ -25,7 +25,7 @@ namespace vetsoft_c.DTOs
         public double? Peso { get; set; }
         public string? Color { get; set; }
         public string? Alergias { get; set; }
-        public long ClienteId { get; set; }
+        public long IdCliente { get; set; }
     }
 
     public class PacienteUpdateDTO
@@ -39,6 +39,6 @@ namespace vetsoft_c.DTOs
         public string? Color { get; set; }
         public string? Alergias { get; set; }
         public bool? Estado { get; set; }
-        public long? ClienteId { get; set; }
+        public long? IdCliente { get; set; }
     }
 }
