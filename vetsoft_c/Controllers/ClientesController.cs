@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 using vetsoft_c.Services;
 
@@ -116,7 +117,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new ClienteResponseDTO
                 {
-                    IdCliente = nuevoCliente.IdCliente,
+                    Id = nuevoCliente.IdCliente,
                     Codigo = nuevoCliente.Codigo,
                     Nombre = nuevoCliente.Nombre,
                     Apellido = nuevoCliente.Apellido,
@@ -168,7 +169,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new ClienteResponseDTO
                 {
-                    IdCliente = clienteActualizado.IdCliente,
+                    Id = clienteActualizado.IdCliente,
                     Codigo = clienteActualizado.Codigo,
                     Nombre = clienteActualizado.Nombre,
                     Apellido = clienteActualizado.Apellido,

@@ -76,14 +76,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cita",
-        "Type": "vetsoft_c.Models.Cita",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.CitaCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Cita",
+        "Type": "vetsoft_c.DTOs.CitaResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -133,14 +133,14 @@
         "IsRequired": true
       },
       {
-        "Name": "cita",
-        "Type": "vetsoft_c.Models.Cita",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.CitaUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Cita",
+        "Type": "vetsoft_c.DTOs.CitaResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -221,14 +221,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cliente",
-        "Type": "vetsoft_c.Models.Cliente",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.ClienteCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Cliente",
+        "Type": "vetsoft_c.DTOs.ClienteResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -278,14 +278,14 @@
         "IsRequired": true
       },
       {
-        "Name": "cliente",
-        "Type": "vetsoft_c.Models.Cliente",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.ClienteUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Cliente",
+        "Type": "vetsoft_c.DTOs.ClienteResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -498,6 +498,26 @@
     ]
   },
   {
+    "ContainingType": "vetsoft_c.Controllers.DashboardController",
+    "Method": "ObtenerEstadisticas",
+    "RelativePath": "api/Dashboard/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "vetsoft_c.DTOs.DashboardStatsDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "vetsoft_c.Controllers.PacientesController",
     "Method": "ObtenerTodos",
     "RelativePath": "api/Pacientes",
@@ -526,14 +546,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paciente",
-        "Type": "vetsoft_c.Models.Paciente",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.PacienteCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Paciente",
+        "Type": "vetsoft_c.DTOs.PacienteResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -583,14 +603,14 @@
         "IsRequired": true
       },
       {
-        "Name": "paciente",
-        "Type": "vetsoft_c.Models.Paciente",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.PacienteUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Paciente",
+        "Type": "vetsoft_c.DTOs.PacienteResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -671,14 +691,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "servicio",
-        "Type": "vetsoft_c.Models.Servicio",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.ServicioCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Servicio",
+        "Type": "vetsoft_c.DTOs.ServicioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -728,14 +748,14 @@
         "IsRequired": true
       },
       {
-        "Name": "servicio",
-        "Type": "vetsoft_c.Models.Servicio",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.ServicioUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Servicio",
+        "Type": "vetsoft_c.DTOs.ServicioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -836,14 +856,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "usuario",
-        "Type": "vetsoft_c.Models.Usuario",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.UsuarioCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Usuario",
+        "Type": "vetsoft_c.DTOs.UsuarioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -893,14 +913,14 @@
         "IsRequired": true
       },
       {
-        "Name": "usuario",
-        "Type": "vetsoft_c.Models.Usuario",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.UsuarioUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Usuario",
+        "Type": "vetsoft_c.DTOs.UsuarioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -981,14 +1001,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "veterinario",
-        "Type": "vetsoft_c.Models.Veterinario",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.VeterinarioCreateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Veterinario",
+        "Type": "vetsoft_c.DTOs.VeterinarioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1038,14 +1058,14 @@
         "IsRequired": true
       },
       {
-        "Name": "veterinario",
-        "Type": "vetsoft_c.Models.Veterinario",
+        "Name": "dto",
+        "Type": "vetsoft_c.DTOs.VeterinarioUpdateDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Veterinario",
+        "Type": "vetsoft_c.DTOs.VeterinarioResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

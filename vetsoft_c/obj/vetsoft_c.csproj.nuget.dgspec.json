@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj": {}
+    "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj": {}
   },
   "projects": {
-    "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj": {
+    "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
+        "projectUniqueName": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
         "projectName": "vetsoft_c",
-        "projectPath": "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
+        "projectPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
         "packagesPath": "C:\\Users\\almirco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\obj\\",
+        "outputPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

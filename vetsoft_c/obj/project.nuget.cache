@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AKDqvoHr+3E=",
+  "dgSpecHash": "beFn97iEw/Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\almirco\\source\\repos\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
+  "projectFilePath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\vetsoft_c.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\almirco\\.nuget\\packages\\castle.core\\5.2.1\\castle.core.5.2.1.nupkg.sha512",
     "C:\\Users\\almirco\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.5\\microsoft.aspnetcore.openapi.10.0.5.nupkg.sha512",

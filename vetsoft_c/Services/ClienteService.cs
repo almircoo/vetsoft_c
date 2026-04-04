@@ -58,6 +58,11 @@ namespace vetsoft_c.Services
             return await _context.Clientes.FirstOrDefaultAsync(c => c.Codigo == codigo);
         }
 
+        public async Task<Cliente?> ObtenerPorId(long id)
+        {
+            return await _context.Clientes.FindAsync(id);
+        }
+
         public async Task<List<Cliente>> BuscarPorNombre(string nombre)
         {
             return await _context.Clientes

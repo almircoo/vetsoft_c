@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 using vetsoft_c.Services;
 
@@ -58,7 +59,7 @@ namespace vetsoft_c.Controllers
                     Peso = dto.Peso,
                     Color = dto.Color,
                     Alergias = dto.Alergias,
-                    IdCliente = dto.IdCliente,
+                    IdCliente = dto.ClienteId,
                     Estado = true
                 };
 
@@ -66,7 +67,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new PacienteResponseDTO
                 {
-                    IdPaciente = creado.IdPaciente,
+                    Id = creado.IdPaciente,
                     Codigo = creado.Codigo,
                     Nombre = creado.Nombre,
                     Especie = creado.Especie,
@@ -76,7 +77,7 @@ namespace vetsoft_c.Controllers
                     Color = creado.Color,
                     Alergias = creado.Alergias,
                     Estado = creado.Estado,
-                    IdCliente = creado.IdCliente
+                    ClienteId = creado.IdCliente
                 };
 
                 return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdPaciente }, response);
@@ -114,7 +115,7 @@ namespace vetsoft_c.Controllers
                     Peso = dto.Peso ?? pacienteExistente.Peso,
                     Color = dto.Color ?? pacienteExistente.Color,
                     Alergias = dto.Alergias ?? pacienteExistente.Alergias,
-                    IdCliente = dto.IdCliente ?? pacienteExistente.IdCliente,
+                    IdCliente = dto.ClienteId ?? pacienteExistente.IdCliente,
                     Estado = dto.Estado ?? pacienteExistente.Estado
                 };
 
@@ -122,7 +123,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new PacienteResponseDTO
                 {
-                    IdPaciente = actualizado.IdPaciente,
+                    Id = actualizado.IdPaciente,
                     Codigo = actualizado.Codigo,
                     Nombre = actualizado.Nombre,
                     Especie = actualizado.Especie,
@@ -132,7 +133,7 @@ namespace vetsoft_c.Controllers
                     Color = actualizado.Color,
                     Alergias = actualizado.Alergias,
                     Estado = actualizado.Estado,
-                    IdCliente = actualizado.IdCliente
+                    ClienteId = actualizado.IdCliente
                 };
 
                 return Ok(response);

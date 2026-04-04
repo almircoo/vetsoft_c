@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 using vetsoft_c.Services;
 
@@ -64,7 +65,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new VeterinarioResponseDTO
                 {
-                    IdVeterinario = creado.IdVeterinario,
+                    Id = creado.IdVeterinario,
                     Codigo = creado.Codigo,
                     Nombre = creado.Nombre,
                     Apellido = creado.Apellido,
@@ -116,7 +117,7 @@ namespace vetsoft_c.Controllers
 
                 var response = new VeterinarioResponseDTO
                 {
-                    IdVeterinario = actualizado.IdVeterinario,
+                    Id = actualizado.IdVeterinario,
                     Codigo = actualizado.Codigo,
                     Nombre = actualizado.Nombre,
                     Apellido = actualizado.Apellido,

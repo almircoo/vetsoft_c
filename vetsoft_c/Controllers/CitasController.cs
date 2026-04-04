@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 using vetsoft_c.Services;
 
@@ -55,9 +56,9 @@ namespace vetsoft_c.Controllers
                       Codigo = codigo,
                       FechaHora = dto.FechaHora,
                       Motivo = dto.Motivo,
-                      IdPaciente = dto.IdPaciente,
-                      IdVeterinario = dto.IdVeterinario,
-                      IdServicio = dto.IdServicio,
+                      IdPaciente = dto.PacienteId,
+                      IdVeterinario = dto.VeterinarioId,
+                      IdServicio = dto.ServicioId,
                       Estado = "PENDIENTE"
                   };
 
@@ -65,7 +66,7 @@ namespace vetsoft_c.Controllers
 
                   var response = new CitaResponseDTO
                   {
-                      IdCita = creado.IdCita,
+                      Id = creado.IdCita,
                       Codigo = creado.Codigo,
                       FechaHora = creado.FechaHora,
                       Motivo = creado.Motivo,
@@ -73,9 +74,9 @@ namespace vetsoft_c.Controllers
                       Tratamiento = creado.Tratamiento,
                       Notas = creado.Notas,
                       Estado = creado.Estado,
-                      IdPaciente = creado.IdPaciente,
-                      IdVeterinario = creado.IdVeterinario,
-                      IdServicio = creado.IdServicio
+                      PacienteId = creado.IdPaciente,
+                      VeterinarioId = creado.IdVeterinario,
+                      ServicioId = creado.IdServicio
                   };
 
                   return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdCita }, response);
@@ -121,7 +122,7 @@ namespace vetsoft_c.Controllers
 
               var response = new CitaResponseDTO
               {
-                  IdCita = actualizado.IdCita,
+                  Id = actualizado.IdCita,
                   Codigo = actualizado.Codigo,
                   FechaHora = actualizado.FechaHora,
                   Motivo = actualizado.Motivo,
@@ -129,9 +130,9 @@ namespace vetsoft_c.Controllers
                   Tratamiento = actualizado.Tratamiento,
                   Notas = actualizado.Notas,
                   Estado = actualizado.Estado,
-                  IdPaciente = actualizado.IdPaciente,
-                  IdVeterinario = actualizado.IdVeterinario,
-                  IdServicio = actualizado.IdServicio
+                  PacienteId = actualizado.IdPaciente,
+                  VeterinarioId = actualizado.IdVeterinario,
+                  ServicioId = actualizado.IdServicio
               };
 
               return Ok(response);
