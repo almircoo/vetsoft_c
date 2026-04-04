@@ -47,10 +47,13 @@ namespace vetsoft_c.Controllers
                     Codigo = await _codigoService.GenerarCodigoCitaAsync(),
                     FechaHora = dto.FechaHora,
                     Motivo = dto.Motivo,
+                    Notas = dto.Notas,    
+                    Diagnostico = dto.Diagnostico,
+                    Tratamiento = dto.Tratamiento,
                     IdPaciente = dto.PacienteId,
                     IdVeterinario = dto.VeterinarioId,
                     IdServicio = dto.ServicioId,
-                    Estado = "PENDIENTE"
+                    Estado = "PROGRAMADA"
                 };
 
                 var creado = await _citaService.Crear(cita);

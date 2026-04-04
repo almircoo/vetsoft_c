@@ -20,6 +20,9 @@ namespace vetsoft_c.DTOs
         //public string Codigo { get; set; }
         public DateTime FechaHora { get; set; }
         public string? Motivo { get; set; }
+        public string? Notas { get; set; } 
+        public string? Diagnostico { get; set; }
+        public string? Tratamiento { get; set; }
         public long PacienteId { get; set; }
         public long VeterinarioId { get; set; }
         public long ServicioId { get; set; }

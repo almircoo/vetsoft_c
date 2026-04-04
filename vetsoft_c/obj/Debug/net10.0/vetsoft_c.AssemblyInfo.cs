@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vetsoft_c")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95fc606734d36d8e90a8c6ed8e657e5ae5ebafe1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0867f67658cd446b4c30ab8b20ebb6fb9a047d39")]
 [assembly: System.Reflection.AssemblyProductAttribute("vetsoft_c")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vetsoft_c")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

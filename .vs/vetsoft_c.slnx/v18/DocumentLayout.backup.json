@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\dtos\\pacientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\pacienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\models\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\services\\citaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\controllers\\citascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA9C6B51-BFD1-24E9-CE96-7D086BF26F37}|vetsoft_c\\vetsoft_c.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\vetsoft_c\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,27 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PacienteService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\PacienteService.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\Services\\PacienteService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\PacienteService.cs",
-              "RelativeToolTip": "vetsoft_c\\Services\\PacienteService.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAASwCoAAAAKAAAAAAAAAA==",
+              "Title": "CitasController.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\CitasController.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Controllers\\CitasController.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\CitasController.cs",
+              "RelativeToolTip": "vetsoft_c\\Controllers\\CitasController.cs",
+              "ViewState": "AgIAAAUAAAAAzMzMzMwnwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T14:05:17.089Z",
+              "WhenOpened": "2026-04-04T15:56:10.391Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PacienteDTO.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\DTOs\\PacienteDTO.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\DTOs\\PacienteDTO.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\DTOs\\PacienteDTO.cs",
-              "RelativeToolTip": "vetsoft_c\\DTOs\\PacienteDTO.cs",
-              "ViewState": "AgIAAB8AAAAAMzMzM/MtwCUAAAARAAAAAAAAAA==",
+              "Title": "CitaService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CitaService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\CitaService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\CitaService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\CitaService.cs",
+              "ViewState": "AgIAAEQAAACAzczMzMwQwCUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T14:04:39.94Z",
+              "WhenOpened": "2026-04-04T15:53:07.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PacienteService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\PacienteService.cs",
+              "RelativeDocumentMoniker": "vetsoft_c\\Services\\PacienteService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Services\\PacienteService.cs",
+              "RelativeToolTip": "vetsoft_c\\Services\\PacienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-04T14:05:17.089Z",
               "EditorCaption": ""
             },
             {
@@ -74,7 +87,7 @@
               "RelativeDocumentMoniker": "vetsoft_c\\appsettings.json",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\appsettings.json",
               "RelativeToolTip": "vetsoft_c\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-04T13:25:42.037Z",
               "EditorCaption": ""
@@ -87,35 +100,22 @@
               "RelativeDocumentMoniker": "vetsoft_c\\Program.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Program.cs",
               "RelativeToolTip": "vetsoft_c\\Program.cs",
-              "ViewState": "AgIAAEEAAAAAZmZmZuYuwIIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-04T13:13:48.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PacientesController.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\PacientesController.cs",
               "RelativeDocumentMoniker": "vetsoft_c\\Controllers\\PacientesController.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Controllers\\PacientesController.cs",
               "RelativeToolTip": "vetsoft_c\\Controllers\\PacientesController.cs",
-              "ViewState": "AgIAAG8AAAAAmZmZmZkXwFQAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-04T12:29:46.513Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Paciente.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Models\\Paciente.cs",
-              "RelativeDocumentMoniker": "vetsoft_c\\Models\\Paciente.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\vetsoft_c\\Models\\Paciente.cs",
-              "RelativeToolTip": "vetsoft_c\\Models\\Paciente.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAYwCQAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T12:28:39.481Z",
               "EditorCaption": ""
             },
             {
