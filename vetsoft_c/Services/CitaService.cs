@@ -95,9 +95,9 @@ namespace vetsoft_c.Services
             Diagnostico = c.Diagnostico,
             Tratamiento = c.Tratamiento,
             Estado = c.Estado,
-            PacienteId = c.IdPaciente,
-            VeterinarioId = c.IdVeterinario,
-            ServicioId = c.IdServicio
+            IdPaciente = c.IdPaciente,
+            IdVeterinario = c.IdVeterinario,
+            IdServicio = c.IdServicio
         };
     }
 }

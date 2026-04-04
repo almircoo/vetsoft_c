@@ -50,9 +50,9 @@ namespace vetsoft_c.Controllers
                     Notas = dto.Notas,    
                     Diagnostico = dto.Diagnostico,
                     Tratamiento = dto.Tratamiento,
-                    IdPaciente = dto.PacienteId,
-                    IdVeterinario = dto.VeterinarioId,
-                    IdServicio = dto.ServicioId,
+                    IdPaciente = dto.IdPaciente,
+                    IdVeterinario = dto.IdVeterinario,
+                    IdServicio = dto.IdServicio,
                     Estado = "PROGRAMADA"
                 };
 
@@ -84,9 +84,9 @@ namespace vetsoft_c.Controllers
                     Diagnostico = dto.Diagnostico ?? existente.Diagnostico,
                     Tratamiento = dto.Tratamiento ?? existente.Tratamiento,
                     Estado = dto.Estado ?? existente.Estado,
-                    IdPaciente = existente.PacienteId,
-                    IdVeterinario = existente.VeterinarioId,
-                    IdServicio = existente.ServicioId
+                    IdPaciente = existente.IdPaciente,
+                    IdVeterinario = existente.IdVeterinario,
+                    IdServicio = existente.IdServicio
                 };
 
                 await _citaService.Actualizar(id, cita);

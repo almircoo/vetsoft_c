@@ -15,7 +15,7 @@ namespace vetsoft_c.Models
         [Required]
         [StringLength(20)]
         [Column("codigo")]
-        public string Codigo { get; set; } = string.Empty;
+        public string Codigo { get; set; }
 
         [Required]
         [Column("fecha_hora")]

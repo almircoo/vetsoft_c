@@ -10,9 +10,9 @@ namespace vetsoft_c.DTOs
         public string? Diagnostico { get; set; }
         public string? Tratamiento { get; set; }
         public string Estado { get; set; }
-        public long PacienteId { get; set; }
-        public long VeterinarioId { get; set; }
-        public long ServicioId { get; set; }
+        public long IdPaciente { get; set; }
+        public long IdVeterinario { get; set; }
+        public long IdServicio { get; set; }
     }
 
     public class CitaCreateDTO
@@ -23,9 +23,10 @@ namespace vetsoft_c.DTOs
         public string? Notas { get; set; } 
         public string? Diagnostico { get; set; }
         public string? Tratamiento { get; set; }
-        public long PacienteId { get; set; }
-        public long VeterinarioId { get; set; }
-        public long ServicioId { get; set; }
+        public string Estado { get; set; }
+        public long IdPaciente { get; set; }
+        public long IdVeterinario { get; set; }
+        public long IdServicio { get; set; }
     }
 
     public class CitaUpdateDTO
@@ -37,8 +38,8 @@ namespace vetsoft_c.DTOs
         public string? Diagnostico { get; set; }
         public string? Tratamiento { get; set; }
         public string? Estado { get; set; }
-        public long? PacienteId { get; set; }
-        public long? VeterinarioId { get; set; }
-        public long? ServicioId { get; set; }
+        public long IdPaciente { get; set; }
+        public long IdVeterinario { get; set; }
+        public long IdServicio { get; set; }
     }
 }

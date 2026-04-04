@@ -1949,15 +1949,19 @@
             "type": "string",
             "nullable": true
           },
-          "pacienteId": {
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPaciente": {
             "type": "integer",
             "format": "int64"
           },
-          "veterinarioId": {
+          "idVeterinario": {
             "type": "integer",
             "format": "int64"
           },
-          "servicioId": {
+          "idServicio": {
             "type": "integer",
             "format": "int64"
           }
@@ -1999,15 +2003,15 @@
             "type": "string",
             "nullable": true
           },
-          "pacienteId": {
+          "idPaciente": {
             "type": "integer",
             "format": "int64"
           },
-          "veterinarioId": {
+          "idVeterinario": {
             "type": "integer",
             "format": "int64"
           },
-          "servicioId": {
+          "idServicio": {
             "type": "integer",
             "format": "int64"
           }
@@ -2042,20 +2046,17 @@
             "type": "string",
             "nullable": true
           },
-          "pacienteId": {
+          "idPaciente": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
-          "veterinarioId": {
+          "idVeterinario": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           },
-          "servicioId": {
+          "idServicio": {
             "type": "integer",
-            "format": "int64",
-            "nullable": true
+            "format": "int64"
           }
         },
         "additionalProperties": false
