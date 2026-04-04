@@ -527,7 +527,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[vetsoft_c.Models.Paciente, vetsoft_c, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[vetsoft_c.DTOs.PacienteResponseDTO, vetsoft_c, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -579,7 +579,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "vetsoft_c.Models.Paciente",
+        "Type": "vetsoft_c.DTOs.PacienteResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -652,7 +652,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[vetsoft_c.Models.Paciente, vetsoft_c, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[vetsoft_c.DTOs.PacienteResponseDTO, vetsoft_c, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

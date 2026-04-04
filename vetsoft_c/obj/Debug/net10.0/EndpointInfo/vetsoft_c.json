@@ -898,7 +898,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               },
@@ -906,7 +906,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               },
@@ -914,7 +914,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               }
@@ -992,7 +992,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               },
@@ -1000,7 +1000,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               },
@@ -1008,7 +1008,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Paciente"
+                    "$ref": "#/components/schemas/PacienteResponseDTO"
                   }
                 }
               }
@@ -1039,17 +1039,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Paciente"
+                  "$ref": "#/components/schemas/PacienteResponseDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Paciente"
+                  "$ref": "#/components/schemas/PacienteResponseDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Paciente"
+                  "$ref": "#/components/schemas/PacienteResponseDTO"
                 }
               }
             }

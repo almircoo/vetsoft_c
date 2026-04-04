@@ -1,9 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using vetsoft_c.Data;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 
 namespace vetsoft_c.Services
@@ -11,54 +12,41 @@ namespace vetsoft_c.Services
     public class CitaService
     {
         private readonly AppDbContext _context;
+        public CitaService(AppDbContext context) => _context = context;
 
-        public CitaService(AppDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<List<Cita>> ObtenerTodos()
+        public async Task<List<CitaResponseDTO>> ObtenerTodos()
         {
             return await _context.Citas
-                .Include(c => c.Paciente)
-                .Include(c => c.Veterinario)
-                .Include(c => c.Servicio)
+                .AsNoTracking()
+                .Select(c => ToDTO(c))
                 .ToListAsync();
         }
 
-        public async Task<List<Cita>> BusquedaGlobal(string? termino)
+        public async Task<List<CitaResponseDTO>> BusquedaGlobal(string? termino)
         {
-            if (string.IsNullOrWhiteSpace(termino))
+            var query = _context.Citas.AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(termino))
             {
-                return await _context.Citas
-                    .Include(c => c.Paciente)
-                    .Include(c => c.Veterinario)
-                    .Include(c => c.Servicio)
-                    .ToListAsync();
+                string t = termino.ToLower();
+                query = query.Where(c =>
+                    c.Codigo.ToLower().Contains(t) ||
+                    c.Paciente!.Nombre.ToLower().Contains(t) ||
+                    c.Veterinario!.Nombre.ToLower().Contains(t) ||
+                    c.Veterinario!.Apellido.ToLower().Contains(t) ||
+                    c.Servicio!.Nombre.ToLower().Contains(t));
             }
 
-            string t = termino.ToLower();
-            
-            return await _context.Citas
-                .Include(c => c.Paciente)
-                .Include(c => c.Veterinario)
-                .Include(c => c.Servicio)
-                .Where(c => 
-                    c.Codigo.ToLower().Contains(t) ||
-                    (c.Paciente != null && c.Paciente.Nombre.ToLower().Contains(t)) ||
-                    (c.Veterinario != null && c.Veterinario.Nombre.ToLower().Contains(t)) ||
-                    (c.Veterinario != null && c.Veterinario.Apellido.ToLower().Contains(t)) ||
-                    (c.Servicio != null && c.Servicio.Nombre.ToLower().Contains(t)))
-                .ToListAsync();
+            return await query.Select(c => ToDTO(c)).ToListAsync();
         }
 
-        public async Task<Cita?> ObtenerPorId(long id)
+        public async Task<CitaResponseDTO?> ObtenerPorId(long id)
         {
             return await _context.Citas
-                .Include(c => c.Paciente)
-                .Include(c => c.Veterinario)
-                .Include(c => c.Servicio)
-                .FirstOrDefaultAsync(c => c.IdCita == id);
+                .AsNoTracking()
+                .Where(c => c.IdCita == id)
+                .Select(c => ToDTO(c))
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Cita> Crear(Cita cita)
@@ -74,11 +62,11 @@ namespace vetsoft_c.Services
             if (c == null) throw new Exception("No encontrado");
 
             c.FechaHora = actualizado.FechaHora;
-            c.Motivo = actualizado.Motivo ?? c.Motivo;
-            c.Notas = actualizado.Notas ?? c.Notas;
-            c.Diagnostico = actualizado.Diagnostico ?? c.Diagnostico;
-            c.Tratamiento = actualizado.Tratamiento ?? c.Tratamiento;
-            c.Estado = actualizado.Estado ?? c.Estado;
+            c.Motivo = actualizado.Motivo;
+            c.Notas = actualizado.Notas;
+            c.Diagnostico = actualizado.Diagnostico;
+            c.Tratamiento = actualizado.Tratamiento;
+            c.Estado = actualizado.Estado;
             c.IdPaciente = actualizado.IdPaciente;
             c.IdVeterinario = actualizado.IdVeterinario;
             c.IdServicio = actualizado.IdServicio;
@@ -96,5 +84,20 @@ namespace vetsoft_c.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        private static CitaResponseDTO ToDTO(Cita c) => new()
+        {
+            Id = c.IdCita,
+            Codigo = c.Codigo,
+            FechaHora = c.FechaHora,
+            Motivo = c.Motivo,
+            Notas = c.Notas,
+            Diagnostico = c.Diagnostico,
+            Tratamiento = c.Tratamiento,
+            Estado = c.Estado,
+            PacienteId = c.IdPaciente,
+            VeterinarioId = c.IdVeterinario,
+            ServicioId = c.IdServicio
+        };
     }
 }

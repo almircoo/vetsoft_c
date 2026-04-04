@@ -21,19 +21,15 @@ namespace vetsoft_c.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Cita>>> ObtenerTodos()
-        {
-            return Ok(await _citaService.ObtenerTodos());
-        }
+        public async Task<ActionResult<List<CitaResponseDTO>>> ObtenerTodos()
+            => Ok(await _citaService.ObtenerTodos());
 
         [HttpGet("buscar/{termino}")]
-        public async Task<ActionResult<List<Cita>>> BuscarGlobal(string termino)
-        {
-            return Ok(await _citaService.BusquedaGlobal(termino));
-        }
+        public async Task<ActionResult<List<CitaResponseDTO>>> BuscarGlobal(string termino)
+            => Ok(await _citaService.BusquedaGlobal(termino));
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cita>> ObtenerPorId(long id)
+        public async Task<ActionResult<CitaResponseDTO>> ObtenerPorId(long id)
         {
             var c = await _citaService.ObtenerPorId(id);
             return c != null ? Ok(c) : NotFound();
@@ -42,105 +38,58 @@ namespace vetsoft_c.Controllers
         [HttpPost]
         public async Task<ActionResult<CitaResponseDTO>> Crear([FromBody] CitaCreateDTO dto)
         {
-            // var creado = await _citaService.Crear(cita);
-            // return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdCita }, creado);
             try
+            {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+
+                var cita = new Cita
                 {
-                  if (!ModelState.IsValid)
-                      return BadRequest(ModelState);
+                    Codigo = await _codigoService.GenerarCodigoCitaAsync(),
+                    FechaHora = dto.FechaHora,
+                    Motivo = dto.Motivo,
+                    IdPaciente = dto.PacienteId,
+                    IdVeterinario = dto.VeterinarioId,
+                    IdServicio = dto.ServicioId,
+                    Estado = "PENDIENTE"
+                };
 
-                  var codigo = await _codigoService.GenerarCodigoCitaAsync();
-
-                  var cita = new Cita
-                  {
-                      Codigo = codigo,
-                      FechaHora = dto.FechaHora,
-                      Motivo = dto.Motivo,
-                      IdPaciente = dto.PacienteId,
-                      IdVeterinario = dto.VeterinarioId,
-                      IdServicio = dto.ServicioId,
-                      Estado = "PENDIENTE"
-                  };
-
-                  var creado = await _citaService.Crear(cita);
-
-                  var response = new CitaResponseDTO
-                  {
-                      Id = creado.IdCita,
-                      Codigo = creado.Codigo,
-                      FechaHora = creado.FechaHora,
-                      Motivo = creado.Motivo,
-                      Diagnostico = creado.Diagnostico,
-                      Tratamiento = creado.Tratamiento,
-                      Notas = creado.Notas,
-                      Estado = creado.Estado,
-                      PacienteId = creado.IdPaciente,
-                      VeterinarioId = creado.IdVeterinario,
-                      ServicioId = creado.IdServicio
-                  };
-
-                  return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdCita }, response);
+                var creado = await _citaService.Crear(cita);
+                return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdCita },
+                    await _citaService.ObtenerPorId(creado.IdCita));
             }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Error al crear cita", error = ex.Message });
-            }
+            catch (ArgumentException ex) { return BadRequest(new { message = ex.Message }); }
+            catch (Exception ex) { return StatusCode(500, new { message = "Error al crear cita", error = ex.Message }); }
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<CitaResponseDTO>> Actualizar(long id, [FromBody] CitaUpdateDTO dto)
         {
-          try
-          {
-              if (!ModelState.IsValid)
-                  return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
 
-              var citaExistente = await _citaService.ObtenerPorId(id);
-              if (citaExistente == null)
-                  return NotFound(new { message = "Cita no encontrada" });
+                var existente = await _citaService.ObtenerPorId(id);
+                if (existente == null) return NotFound(new { message = "Cita no encontrada" });
 
-              var citaActualizar = new Cita
-              {
-                  IdCita = id,
-                  Codigo = citaExistente.Codigo,
-                  FechaHora = dto.FechaHora ?? citaExistente.FechaHora,
-                  Motivo = dto.Motivo ?? citaExistente.Motivo,
-                  Diagnostico = dto.Diagnostico ?? citaExistente.Diagnostico,
-                  Tratamiento = dto.Tratamiento ?? citaExistente.Tratamiento,
-                  Notas = dto.Notas ?? citaExistente.Notas,
-                  Estado = dto.Estado ?? citaExistente.Estado,
-                  IdPaciente = citaExistente.IdPaciente,
-                  IdVeterinario = citaExistente.IdVeterinario,
-                  IdServicio = citaExistente.IdServicio
-              };
+                var cita = new Cita
+                {
+                    IdCita = id,
+                    Codigo = existente.Codigo,
+                    FechaHora = dto.FechaHora ?? existente.FechaHora,
+                    Motivo = dto.Motivo ?? existente.Motivo,
+                    Notas = dto.Notas ?? existente.Notas,
+                    Diagnostico = dto.Diagnostico ?? existente.Diagnostico,
+                    Tratamiento = dto.Tratamiento ?? existente.Tratamiento,
+                    Estado = dto.Estado ?? existente.Estado,
+                    IdPaciente = existente.PacienteId,
+                    IdVeterinario = existente.VeterinarioId,
+                    IdServicio = existente.ServicioId
+                };
 
-              var actualizado = await _citaService.Actualizar(id, citaActualizar);
-
-              var response = new CitaResponseDTO
-              {
-                  Id = actualizado.IdCita,
-                  Codigo = actualizado.Codigo,
-                  FechaHora = actualizado.FechaHora,
-                  Motivo = actualizado.Motivo,
-                  Diagnostico = actualizado.Diagnostico,
-                  Tratamiento = actualizado.Tratamiento,
-                  Notas = actualizado.Notas,
-                  Estado = actualizado.Estado,
-                  PacienteId = actualizado.IdPaciente,
-                  VeterinarioId = actualizado.IdVeterinario,
-                  ServicioId = actualizado.IdServicio
-              };
-
-              return Ok(response);
-          }
-          catch (Exception ex)
-          {
-              return StatusCode(500, new { message = "Error al actualizar cita", error = ex.Message });
-          }
+                await _citaService.Actualizar(id, cita);
+                return Ok(await _citaService.ObtenerPorId(id));
+            }
+            catch (Exception ex) { return StatusCode(500, new { message = "Error al actualizar cita", error = ex.Message }); }
         }
 
         [HttpDelete("{id}")]

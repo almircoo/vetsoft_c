@@ -21,34 +21,15 @@ namespace vetsoft_c.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Paciente>>> ObtenerTodos()
-        {
-            var pacientes = await _pacienteService.ObtenerTodos();
-            var response = pacientes.Select(p => new PacienteResponseDTO
-            {
-                Id = p.IdPaciente,
-                Codigo = p.Codigo,
-                Nombre = p.Nombre,
-                Especie = p.Especie,
-                Raza = p.Raza,
-                Edad = p.Edad,
-                Peso = p.Peso,
-                Color = p.Color,
-                Alergias = p.Alergias,
-                IdCliente = p.IdCliente
-            }).ToList();
-
-            return Ok(response);
-        }
+        public async Task<ActionResult<List<PacienteResponseDTO>>> ObtenerTodos()
+            => Ok(await _pacienteService.ObtenerTodos());
 
         [HttpGet("buscar/{termino}")]
-        public async Task<ActionResult<List<Paciente>>> BuscarGlobal(string termino)
-        {
-            return Ok(await _pacienteService.BusquedaGlobal(termino));
-        }
+        public async Task<ActionResult<List<PacienteResponseDTO>>> BuscarGlobal(string termino)
+            => Ok(await _pacienteService.BusquedaGlobal(termino));
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Paciente>> ObtenerPorId(long id)
+        public async Task<ActionResult<PacienteResponseDTO>> ObtenerPorId(long id)
         {
             var p = await _pacienteService.ObtenerPorId(id);
             return p != null ? Ok(p) : NotFound();
@@ -59,14 +40,11 @@ namespace vetsoft_c.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                var codigo = await _codigoService.GenerarCodigoPacienteAsync();
+                if (!ModelState.IsValid) return BadRequest(ModelState);
 
                 var paciente = new Paciente
                 {
-                    Codigo = codigo,
+                    Codigo = await _codigoService.GenerarCodigoPacienteAsync(),
                     Nombre = dto.Nombre,
                     Especie = dto.Especie,
                     Raza = dto.Raza,
@@ -79,32 +57,12 @@ namespace vetsoft_c.Controllers
                 };
 
                 var creado = await _pacienteService.Crear(paciente);
-
-                var response = new PacienteResponseDTO
-                {
-                    Id = creado.IdPaciente,
-                    Codigo = creado.Codigo,
-                    Nombre = creado.Nombre,
-                    Especie = creado.Especie,
-                    Raza = creado.Raza,
-                    Edad = creado.Edad,
-                    Peso = creado.Peso,
-                    Color = creado.Color,
-                    Alergias = creado.Alergias,
-                    Estado = creado.Estado,
-                    IdCliente = creado.IdCliente
-                };
+                var response = await _pacienteService.ObtenerPorId(creado.IdPaciente);
 
                 return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdPaciente }, response);
             }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Error al crear paciente", error = ex.Message });
-            }
+            catch (ArgumentException ex) { return BadRequest(new { message = ex.Message }); }
+            catch (Exception ex) { return StatusCode(500, new { message = "Error al crear paciente", error = ex.Message }); }
         }
 
         [HttpPut("{id}")]
@@ -112,72 +70,31 @@ namespace vetsoft_c.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
+                if (!ModelState.IsValid) return BadRequest(ModelState);
 
-                var pacienteExistente = await _pacienteService.ObtenerPorId(id);
-                if (pacienteExistente == null)
-                    return NotFound(new { message = "Paciente no encontrado" });
+                var existente = await _pacienteService.ObtenerPorId(id);
+                if (existente == null) return NotFound(new { message = "Paciente no encontrado" });
 
-                var pacienteActualizar = new Paciente
+                var paciente = new Paciente
                 {
                     IdPaciente = id,
-                    Codigo = pacienteExistente.Codigo,
-                    Nombre = dto.Nombre ?? pacienteExistente.Nombre,
-                    Especie = dto.Especie ?? pacienteExistente.Especie,
-                    Raza = dto.Raza ?? pacienteExistente.Raza,
-                    Edad = dto.Edad ?? pacienteExistente.Edad,
-                    Peso = dto.Peso ?? pacienteExistente.Peso,
-                    Color = dto.Color ?? pacienteExistente.Color,
-                    Alergias = dto.Alergias ?? pacienteExistente.Alergias,
-                    IdCliente = dto.IdCliente ?? pacienteExistente.IdCliente,
-                    Estado = dto.Estado ?? pacienteExistente.Estado
+                    Codigo = existente.Codigo,
+                    Nombre = dto.Nombre ?? existente.Nombre,
+                    Especie = dto.Especie ?? existente.Especie,
+                    Raza = dto.Raza ?? existente.Raza,
+                    Edad = dto.Edad ?? existente.Edad,
+                    Peso = dto.Peso ?? existente.Peso,
+                    Color = dto.Color ?? existente.Color,
+                    Alergias = dto.Alergias ?? existente.Alergias,
+                    IdCliente = dto.IdCliente ?? existente.IdCliente,
+                    Estado = dto.Estado ?? existente.Estado
                 };
 
-                var actualizado = await _pacienteService.Actualizar(id, pacienteActualizar);
-
-                var response = new PacienteResponseDTO
-                {
-                    Id = actualizado.IdPaciente,
-                    Codigo = actualizado.Codigo,
-                    Nombre = actualizado.Nombre,
-                    Especie = actualizado.Especie,
-                    Raza = actualizado.Raza,
-                    Edad = actualizado.Edad,
-                    Peso = actualizado.Peso,
-                    Color = actualizado.Color,
-                    Alergias = actualizado.Alergias,
-                    Estado = actualizado.Estado,
-                    IdCliente = actualizado.IdCliente
-                };
-
-                return Ok(response);
+                await _pacienteService.Actualizar(id, paciente);
+                return Ok(await _pacienteService.ObtenerPorId(id));
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Error al actualizar paciente", error = ex.Message });
-            }
+            catch (Exception ex) { return StatusCode(500, new { message = "Error al actualizar paciente", error = ex.Message }); }
         }
-
-        // [HttpPost]
-        // public async Task<ActionResult<Paciente>> Crear([FromBody] Paciente paciente)
-        // {
-        //     var creado = await _pacienteService.Crear(paciente);
-        //     return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdPaciente }, creado);
-        // }
-
-        // [HttpPut("{id}")]
-        // public async Task<ActionResult<Paciente>> Actualizar(long id, [FromBody] Paciente paciente)
-        // {
-        //     try
-        //     {
-        //         return Ok(await _pacienteService.Actualizar(id, paciente));
-        //     }
-        //     catch
-        //     {
-        //         return NotFound();
-        //     }
-        // }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)

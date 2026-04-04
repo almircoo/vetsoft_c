@@ -1,9 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using vetsoft_c.Data;
+using vetsoft_c.DTOs;
 using vetsoft_c.Models;
 
 namespace vetsoft_c.Services
@@ -11,39 +12,40 @@ namespace vetsoft_c.Services
     public class PacienteService
     {
         private readonly AppDbContext _context;
+        public PacienteService(AppDbContext context) => _context = context;
 
-        public PacienteService(AppDbContext context)
+        public async Task<List<PacienteResponseDTO>> ObtenerTodos()
         {
-            _context = context;
-        }
-
-        public async Task<List<Paciente>> ObtenerTodos()
-        {
-            return await _context.Pacientes.Include(p => p.Cliente).ToListAsync();
-        }
-
-        public async Task<List<Paciente>> BusquedaGlobal(string? termino)
-        {
-            if (string.IsNullOrWhiteSpace(termino))
-            {
-                return await _context.Pacientes.Include(p => p.Cliente).ToListAsync();
-            }
-
-            string t = termino.ToLower();
-            
             return await _context.Pacientes
-                .Include(p => p.Cliente)
-                .Where(p => 
-                    p.Codigo.ToLower().Contains(t) ||
-                    p.Nombre.ToLower().Contains(t) ||
-                    (p.Cliente != null && p.Cliente.Nombre.ToLower().Contains(t)) ||
-                    (p.Cliente != null && p.Cliente.Apellido.ToLower().Contains(t)))
+                .AsNoTracking()
+                .Select(p => ToDTO(p))
                 .ToListAsync();
         }
 
-        public async Task<Paciente?> ObtenerPorId(long id)
+        public async Task<List<PacienteResponseDTO>> BusquedaGlobal(string? termino)
         {
-            return await _context.Pacientes.Include(p => p.Cliente).FirstOrDefaultAsync(p => p.IdPaciente == id);
+            var query = _context.Pacientes.AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(termino))
+            {
+                string t = termino.ToLower();
+                query = query.Where(p =>
+                    p.Codigo.ToLower().Contains(t) ||
+                    p.Nombre.ToLower().Contains(t) ||
+                    p.Cliente!.Nombre.ToLower().Contains(t) ||
+                    p.Cliente!.Apellido.ToLower().Contains(t));
+            }
+
+            return await query.Select(p => ToDTO(p)).ToListAsync();
+        }
+
+        public async Task<PacienteResponseDTO?> ObtenerPorId(long id)
+        { 
+            return await _context.Pacientes
+                .AsNoTracking()
+                .Where(p => p.IdPaciente == id)
+                .Select(p => ToDTO(p))
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Paciente> Crear(Paciente paciente)
@@ -58,13 +60,13 @@ namespace vetsoft_c.Services
             var paciente = await _context.Pacientes.FindAsync(id);
             if (paciente == null) throw new Exception("No encontrado");
 
-            paciente.Nombre = actualizado.Nombre ?? paciente.Nombre;
-            paciente.Especie = actualizado.Especie ?? paciente.Especie;
-            paciente.Raza = actualizado.Raza ?? paciente.Raza;
-            paciente.Edad = actualizado.Edad ?? paciente.Edad;
-            paciente.Peso = actualizado.Peso ?? paciente.Peso;
-            paciente.Color = actualizado.Color ?? paciente.Color;
-            paciente.Alergias = actualizado.Alergias ?? paciente.Alergias;
+            paciente.Nombre = actualizado.Nombre;
+            paciente.Especie = actualizado.Especie;
+            paciente.Raza = actualizado.Raza;
+            paciente.Edad = actualizado.Edad;
+            paciente.Peso = actualizado.Peso;
+            paciente.Color = actualizado.Color;
+            paciente.Alergias = actualizado.Alergias;
             paciente.IdCliente = actualizado.IdCliente;
             paciente.Estado = actualizado.Estado;
 
@@ -81,5 +83,21 @@ namespace vetsoft_c.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        private static PacienteResponseDTO ToDTO(Paciente p) => new()
+        {
+            Id = p.IdPaciente,
+            Codigo = p.Codigo,
+            Nombre = p.Nombre,
+            Especie = p.Especie,
+            Raza = p.Raza,
+            Edad = p.Edad,
+            Peso = p.Peso,
+            Color = p.Color,
+            Alergias = p.Alergias,
+            Estado = p.Estado,
+            IdCliente = p.IdCliente
+        };
+        
     }
 }
