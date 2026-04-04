@@ -100,13 +100,27 @@ builder.Services.AddResponseCompression(options =>
 
 var app = builder.Build();
 
+app.UseExceptionHandler((exceptionHandlerApp) =>
+{
+    exceptionHandlerApp.Run(async context =>
+    {
+        var exceptionHandlerPathFeature = context.Features.Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature>();
+        var exception = exceptionHandlerPathFeature?.Error;
+
+        context.Response.ContentType = "application/json";
+        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+
+        await context.Response.WriteAsJsonAsync(new
+        {
+            message = "Error interno del servidor",
+            detail = app.Environment.IsDevelopment() ? exception?.Message : "Ocurrió un error inesperado"
+        });
+    });
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-}
-else
-{
-    app.UseExceptionHandler("/error");
 }
 
 app.UseResponseCompression();
