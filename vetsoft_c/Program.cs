@@ -79,7 +79,7 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<AppDbContext>();
 
 var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>()
-    ?? new[] { "http://localhost:4200", "http://localhost:3000", "http://localhost:8080", "https://vetsoft-frontend.vercel.app/" };
+    ?? new[] { "http://localhost:4200", "http://localhost:3000", "http://localhost:8080", "https://vetsoft-frontend.vercel.app" };
 
 builder.Services.AddCors(options =>
 {
