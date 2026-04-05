@@ -4774,23 +4774,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USUARIO\\.nuget\\packages\\": {},
+    "C:\\Users\\almirco\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\proyectoApiC#.csproj",
+      "projectUniqueName": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.csproj",
       "projectName": "proyectoApiC#",
-      "projectPath": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\proyectoApiC#.csproj",
-      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\obj\\",
+      "projectPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\proyectoApiC#.csproj",
+      "packagesPath": "C:\\Users\\almirco\\.nuget\\packages\\",
+      "outputPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\almirco\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4849,6 +4849,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.14, 9.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[9.0.14, 9.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.14, 9.0.14]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[9.0.14, 9.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

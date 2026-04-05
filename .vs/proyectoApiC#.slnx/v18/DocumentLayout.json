@@ -1,62 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\SprintVeterinariaApis\\proyectoApiC#\\",
+  "WorkspaceRootPath": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\services\\citaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\services\\citaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\pacientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\models\\cita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\models\\cita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\controllers\\citascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\controllers\\citascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\serviciodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\clientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\services\\servicioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\services\\servicioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\dtos\\veterinariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\services\\pacienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\services\\pacienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\services\\clienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\proyectoapic#.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\proyectoapic#.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|c:\\sprintveterinariaapis\\proyectoapic#\\proyectoapic#\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|solutionrelative:proyectoapic#\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{90334C8A-B3CA-D519-AFA6-FBD480BB2068}|proyectoApiC#\\proyectoApiC#.csproj|\\\\mac\\home\\downloads\\vetsoft_c\\proyectoapic#\\models\\cita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,188 +28,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ServicioService.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\ServicioService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\ServicioService.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\ServicioService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\ServicioService.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PacienteDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\PacienteDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:35.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PacienteService.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\PacienteService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\PacienteService.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\PacienteService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\PacienteService.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:31.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ClienteService.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\ClienteService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\ClienteService.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\ClienteService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\ClienteService.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:17.215Z",
+              "WhenOpened": "2026-04-05T04:45:43.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Cita.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Models\\Cita.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Models\\Cita.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Models\\Cita.cs",
-              "RelativeToolTip": "proyectoApiC#\\Models\\Cita.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAcAAAAVAAAAAAAAAA==",
+              "Title": "UsuarioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\UsuarioDTO.cs",
+              "ViewState": "AgIAABcAAADwzMzMzEwpwAUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:48.084Z",
+              "WhenOpened": "2026-04-05T04:45:25.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CitasController.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\CitasController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\CitasController.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\CitasController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\CitasController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Title": "ServicioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\ServicioDTO.cs",
+              "ViewState": "AgIAABoAAAAAZmZmZiYgwBAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:55:54.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CitaService.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\CitaService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\CitaService.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\CitaService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\CitaService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:53.481Z",
+              "WhenOpened": "2026-04-05T04:45:02.408Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Services\\UsuarioService.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "proyectoApiC#\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ClienteDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\ClienteDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:53:43.035Z",
+              "WhenOpened": "2026-04-05T04:44:43.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Properties\\launchSettings.json",
-              "RelativeToolTip": "proyectoApiC#\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-13T00:19:50.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "proyectoApiC#\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "VeterinarioDTO.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "RelativeToolTip": "proyectoApiC#\\DTOs\\VeterinarioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T23:56:07.84Z",
+              "WhenOpened": "2026-04-05T04:43:48.636Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ClientesController.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\ClientesController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\ClientesController.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\ClientesController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\ClientesController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Cita.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
+              "RelativeDocumentMoniker": "proyectoApiC#\\Models\\Cita.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\vetsoft_c\\proyectoApiC#\\Models\\Cita.cs",
+              "RelativeToolTip": "proyectoApiC#\\Models\\Cita.cs",
+              "ViewState": "AgIAAAsAAABAZmZmZmYswAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:16:45.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\appsettings.Development.json",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\appsettings.Development.json",
-              "RelativeToolTip": "proyectoApiC#\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-12T23:57:04.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PacientesController.cs",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\PacientesController.cs",
-              "RelativeDocumentMoniker": "proyectoApiC#\\Controllers\\PacientesController.cs",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\Controllers\\PacientesController.cs",
-              "RelativeToolTip": "proyectoApiC#\\Controllers\\PacientesController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T00:19:11.745Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "proyectoApiC#.http",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\proyectoApiC#.http",
-              "RelativeDocumentMoniker": "proyectoApiC#\\proyectoApiC#.http",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\proyectoApiC#.http",
-              "RelativeToolTip": "proyectoApiC#\\proyectoApiC#.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-04-12T23:57:09.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\appsettings.json",
-              "RelativeDocumentMoniker": "proyectoApiC#\\appsettings.json",
-              "ToolTip": "C:\\SprintVeterinariaApis\\proyectoApiC#\\proyectoApiC#\\appsettings.json",
-              "RelativeToolTip": "proyectoApiC#\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-12T23:57:11.311Z",
+              "WhenOpened": "2026-04-12T23:56:48.084Z",
               "EditorCaption": ""
             }
           ]

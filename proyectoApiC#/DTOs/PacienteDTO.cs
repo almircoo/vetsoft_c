@@ -3,9 +3,9 @@ namespace proyectoApiC_.DTOs
     public class PacienteResponseDTO
     {
         public long Id { get; set; }
-        public string Codigo { get; set; };
-        public string Nombre { get; set; };
-        public string Especie { get; set; };
+        public string Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Especie { get; set; }
         public string? Raza { get; set; }
         public int? Edad { get; set; }
         public double? Peso { get; set; }
@@ -17,9 +17,9 @@ namespace proyectoApiC_.DTOs
 
     public class PacienteCreateDTO
     {
-        public string Codigo { get; set; };
-        public string Nombre { get; set; };
-        public string Especie { get; set; };
+        public string Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Especie { get; set; }
         public string? Raza { get; set; }
         public int? Edad { get; set; }
         public double? Peso { get; set; }
