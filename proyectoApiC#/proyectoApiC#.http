@@ -1,0 +1,6 @@
+@proyectoApiC__HostAddress = http://localhost:5008
+
+GET {{proyectoApiC__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
