@@ -16,10 +16,24 @@ namespace proyectoApiC_.Repositories
                 .FirstOrDefaultAsync(s => s.Nombre == nombre);
         }
 
-        public async Task<IEnumerable<Servicio>> GetByTipoAsync(string tipo)
+        public async Task<IEnumerable<Servicio>> GetByCodigoAsync(string codigo)
         {
             return await _dbSet.AsNoTracking()
-                .Where(s => s.Tipo == tipo)
+                .Where(s => s.Codigo.Contains(codigo))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Servicio>> GetByRangoPrecionAsync(double precioMin, double precioMax)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(s => s.Precio >= precioMin && s.Precio <= precioMax)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Servicio>> GetByEstadoAsync(bool estado)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(s => s.Estado == estado)
                 .ToListAsync();
         }
     }

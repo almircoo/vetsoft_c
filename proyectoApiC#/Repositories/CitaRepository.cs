@@ -10,24 +10,24 @@ namespace proyectoApiC_.Repositories
         {
         }
 
-        public async Task<IEnumerable<Cita>> GetByVeterinarioIdAsync(int veterinarioId)
+        public async Task<IEnumerable<Cita>> GetByVeterinarioIdAsync(long veterinarioId)
         {
             return await _dbSet.AsNoTracking()
-                .Where(c => c.VeterinarioId == veterinarioId)
+                .Where(c => c.IdVeterinario == veterinarioId)
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Cita>> GetByPacienteIdAsync(int pacienteId)
+        public async Task<IEnumerable<Cita>> GetByPacienteIdAsync(long pacienteId)
         {
             return await _dbSet.AsNoTracking()
-                .Where(c => c.PacienteId == pacienteId)
+                .Where(c => c.IdPaciente == pacienteId)
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Cita>> GetByFechaAsync(DateTime fecha)
         {
             return await _dbSet.AsNoTracking()
-                .Where(c => c.Fecha.Date == fecha.Date)
+                .Where(c => c.FechaHora.Date == fecha.Date)
                 .ToListAsync();
         }
 
@@ -35,6 +35,27 @@ namespace proyectoApiC_.Repositories
         {
             return await _dbSet.AsNoTracking()
                 .Where(c => c.Estado == estado)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cita>> GetByServicioIdAsync(long servicioId)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(c => c.IdServicio == servicioId)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cita>> GetByCodigoAsync(string codigo)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(c => c.Codigo.Contains(codigo))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cita>> GetByFechaRangoAsync(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(c => c.FechaHora.Date >= fechaInicio.Date && c.FechaHora.Date <= fechaFin.Date)
                 .ToListAsync();
         }
     }

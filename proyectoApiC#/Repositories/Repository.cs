@@ -15,7 +15,7 @@ namespace proyectoApiC_.Repositories
             _dbSet = context.Set<T>();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(long id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -35,12 +35,10 @@ namespace proyectoApiC_.Repositories
             return await _dbSet.AsNoTracking().FirstOrDefaultAsync(predicate);
         }
 
-
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         {
             return await _dbSet.AnyAsync(predicate);
         }
-
 
         public async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
         {
@@ -59,7 +57,7 @@ namespace proyectoApiC_.Repositories
             return entity;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(long id)
         {
             var entity = await _dbSet.FindAsync(id);
             if (entity == null) return false;

@@ -10,10 +10,10 @@ namespace proyectoApiC_.Repositories
         {
         }
 
-        public async Task<Veterinario?> GetByEmailAsync(string email)
+        public async Task<Veterinario?> GetByCorreoAsync(string correo)
         {
             return await _dbSet.AsNoTracking()
-                .FirstOrDefaultAsync(v => v.Email == email);
+                .FirstOrDefaultAsync(v => v.Correo == correo);
         }
 
         public async Task<IEnumerable<Veterinario>> GetByNombreAsync(string nombre)
@@ -27,6 +27,20 @@ namespace proyectoApiC_.Repositories
         {
             return await _dbSet.AsNoTracking()
                 .Where(v => v.Especialidad == especialidad)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Veterinario>> GetByCodigoAsync(string codigo)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(v => v.Codigo.Contains(codigo))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Veterinario>> GetByEstadoAsync(bool estado)
+        {
+            return await _dbSet.AsNoTracking()
+                .Where(v => v.Estado == estado)
                 .ToListAsync();
         }
     }
