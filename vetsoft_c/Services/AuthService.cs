@@ -51,7 +51,7 @@ namespace vetsoft_c.Services
 
             var usuario = new Usuario
             {
-                Codigo = registerDto.Codigo,
+                //Codigo = registerDto.Codigo,
                 Nombre = registerDto.Nombre,
                 Apellido = registerDto.Apellido,
                 Correo = registerDto.Correo,
