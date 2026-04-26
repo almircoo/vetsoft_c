@@ -13,7 +13,7 @@ namespace vetsoft_c.DTOs
 
     public class ServicioCreateDTO
     {
-        public string Codigo { get; set; }
+        //public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string? Descripcion { get; set; }
         public double Precio { get; set; }
@@ -22,7 +22,7 @@ namespace vetsoft_c.DTOs
 
     public class ServicioUpdateDTO
     {
-        public string? Codigo { get; set; }
+        //public string? Codigo { get; set; }
         public string? Nombre { get; set; }
         public string? Descripcion { get; set; }
         public double? Precio { get; set; }

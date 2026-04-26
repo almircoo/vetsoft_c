@@ -15,9 +15,9 @@ namespace vetsoft_c.DTOs
 
     public class UsuarioCreateDTO
     {
-        [Required(ErrorMessage = "El código es requerido")]
-        [StringLength(20, ErrorMessage = "El código no debe exceder 20 caracteres")]
-        public string Codigo { get; set; }
+        // [Required(ErrorMessage = "El código es requerido")]
+        // [StringLength(20, ErrorMessage = "El código no debe exceder 20 caracteres")]
+        // public string Codigo { get; set; }
 
         [Required(ErrorMessage = "El nombre es requerido")]
         [StringLength(100, ErrorMessage = "El nombre no debe exceder 100 caracteres")]

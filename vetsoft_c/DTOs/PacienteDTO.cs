@@ -17,7 +17,7 @@ namespace vetsoft_c.DTOs
 
     public class PacienteCreateDTO
     {
-        public string Codigo { get; set; }
+        //public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Especie { get; set; }
         public string? Raza { get; set; }
@@ -30,7 +30,7 @@ namespace vetsoft_c.DTOs
 
     public class PacienteUpdateDTO
     {
-        public string? Codigo { get; set; }
+        //public string? Codigo { get; set; }
         public string? Nombre { get; set; }
         public string? Especie { get; set; }
         public string? Raza { get; set; }

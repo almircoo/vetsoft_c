@@ -17,7 +17,7 @@ namespace vetsoft_c.DTOs
 
     public class CitaCreateDTO
     {
-        public string Codigo { get; set; }
+        //public string Codigo { get; set; }
         public DateTime FechaHora { get; set; }
         public string? Motivo { get; set; }
         public long PacienteId { get; set; }
@@ -27,7 +27,7 @@ namespace vetsoft_c.DTOs
 
     public class CitaUpdateDTO
     {
-        public string? Codigo { get; set; }
+        //public string? Codigo { get; set; }
         public DateTime? FechaHora { get; set; }
         public string? Motivo { get; set; }
         public string? Notas { get; set; }

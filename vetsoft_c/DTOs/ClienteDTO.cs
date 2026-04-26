@@ -14,7 +14,7 @@ namespace vetsoft_c.DTOs
 
     public class ClienteCreateDTO
     {
-        public string Codigo { get; set; }
+        //public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
@@ -23,7 +23,7 @@ namespace vetsoft_c.DTOs
 
     public class ClienteUpdateDTO
     {
-        public string? Codigo { get; set; }
+        //public string? Codigo { get; set; }
         public string? Nombre { get; set; }
         public string? Email { get; set; }
         public string? Telefono { get; set; }

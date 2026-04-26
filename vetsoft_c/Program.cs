@@ -52,6 +52,8 @@ builder.Services.AddScoped<VeterinarioService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<CitaService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<CodigoService>();
+builder.Services.AddScoped<DashboardService>();
 
 // Cookie
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -123,7 +125,10 @@ app.MapControllers();
 app.MapHealthChecks("/health");
 
 app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "VetSoft API"));
+app.UseSwaggerUI(c => {
+  c.SwaggerEndpoint("/swagger/v1/swagger.json", "VetSoft API");
+  c.RoutePrefix = string.Empty;
+});
 
 app.Run();
 
