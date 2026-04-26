@@ -11,10 +11,12 @@ namespace vetsoft_c.Controllers
     public class VeterinariosController : ControllerBase
     {
         private readonly VeterinarioService _veterinarioService;
+        private readonly CodigoService _codigoService;
 
-        public VeterinariosController(VeterinarioService veterinarioService)
+        public VeterinariosController(VeterinarioService veterinarioService, CodigoService codigoService)
         {
             _veterinarioService = veterinarioService;
+            _codigoService = codigoService;
         }
 
         [HttpGet]
@@ -37,22 +39,99 @@ namespace vetsoft_c.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Veterinario>> Crear([FromBody] Veterinario veterinario)
-        {
-            var creado = await _veterinarioService.Crear(veterinario);
-            return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdVeterinario }, creado);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Veterinario>> Actualizar(long id, [FromBody] Veterinario veterinario)
+        public async Task<ActionResult<VeterinarioResponseDTO>> Crear([FromBody] VeterinarioCreateDTO dto)
         {
             try
             {
-                return Ok(await _veterinarioService.Actualizar(id, veterinario));
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var codigo = await _codigoService.GenerarCodigoVeterinarioAsync();
+
+                var veterinario = new Veterinario
+                {
+                    Codigo = codigo,
+                    Nombre = dto.Nombre,
+                    Apellido = dto.Apellido,
+                    Correo = dto.Correo,
+                    Telefono = dto.Telefono,
+                    Especialidad = dto.Especialidad,
+                    NumeroColegiado = dto.NumeroColegiado,
+                    Estado = true
+                };
+
+                var creado = await _veterinarioService.Crear(veterinario);
+
+                var response = new VeterinarioResponseDTO
+                {
+                    IdVeterinario = creado.IdVeterinario,
+                    Codigo = creado.Codigo,
+                    Nombre = creado.Nombre,
+                    Apellido = creado.Apellido,
+                    Correo = creado.Correo,
+                    Telefono = creado.Telefono,
+                    Especialidad = creado.Especialidad,
+                    NumeroColegiado = creado.NumeroColegiado,
+                    Estado = creado.Estado
+                };
+
+                return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdVeterinario }, response);
             }
-            catch
+            catch (ArgumentException ex)
             {
-                return NotFound();
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al crear veterinario", error = ex.Message });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<VeterinarioResponseDTO>> Actualizar(long id, [FromBody] VeterinarioUpdateDTO dto)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var veterinarioExistente = await _veterinarioService.ObtenerPorId(id);
+                if (veterinarioExistente == null)
+                    return NotFound(new { message = "Veterinario no encontrado" });
+
+                var veterinarioActualizar = new Veterinario
+                {
+                    IdVeterinario = id,
+                    Codigo = veterinarioExistente.Codigo,
+                    Nombre = dto.Nombre ?? veterinarioExistente.Nombre,
+                    Apellido = dto.Apellido ?? veterinarioExistente.Apellido,
+                    Correo = dto.Correo ?? veterinarioExistente.Correo,
+                    Telefono = dto.Telefono ?? veterinarioExistente.Telefono,
+                    Especialidad = dto.Especialidad ?? veterinarioExistente.Especialidad,
+                    NumeroColegiado = dto.NumeroColegiado ?? veterinarioExistente.NumeroColegiado,
+                    Estado = dto.Estado ?? veterinarioExistente.Estado
+                };
+
+                var actualizado = await _veterinarioService.Actualizar(id, veterinarioActualizar);
+
+                var response = new VeterinarioResponseDTO
+                {
+                    IdVeterinario = actualizado.IdVeterinario,
+                    Codigo = actualizado.Codigo,
+                    Nombre = actualizado.Nombre,
+                    Apellido = actualizado.Apellido,
+                    Correo = actualizado.Correo,
+                    Telefono = actualizado.Telefono,
+                    Especialidad = actualizado.Especialidad,
+                    NumeroColegiado = actualizado.NumeroColegiado,
+                    Estado = actualizado.Estado
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al actualizar veterinario", error = ex.Message });
             }
         }
 

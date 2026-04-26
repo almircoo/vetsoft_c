@@ -12,10 +12,12 @@ namespace vetsoft_c.Controllers
     public class ServiciosController : ControllerBase
     {
         private readonly ServicioService _servicioService;
+        private readonly CodigoService _codigoService;
 
-        public ServiciosController(ServicioService servicioService)
+        public ServiciosController(ServicioService servicioService, CodigoService codigoService)
         {
             _servicioService = servicioService;
+            _codigoService = codigoService;
         }
 
         [HttpGet]
@@ -44,22 +46,91 @@ namespace vetsoft_c.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Servicio>> Crear([FromBody] Servicio servicio)
-        {
-            var creado = await _servicioService.Crear(servicio);
-            return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdServicio }, creado);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Servicio>> Actualizar(long id, [FromBody] Servicio servicio)
+        public async Task<ActionResult<ServicioResponseDTO>> Crear([FromBody] ServicioCreateDTO dto)
         {
             try
             {
-                return Ok(await _servicioService.Actualizar(id, servicio));
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var codigo = await _codigoService.GenerarCodigoServicioAsync();
+
+                var servicio = new Servicio
+                {
+                    Codigo = codigo,
+                    Nombre = dto.Nombre,
+                    Descripcion = dto.Descripcion,
+                    Precio = dto.Precio,
+                    DuracionEstimada = dto.DuracionEstimada,
+                    Estado = true
+                };
+
+                var creado = await _servicioService.Crear(servicio);
+
+                var response = new ServicioResponseDTO
+                {
+                    IdServicio = creado.IdServicio,
+                    Codigo = creado.Codigo,
+                    Nombre = creado.Nombre,
+                    Descripcion = creado.Descripcion,
+                    Precio = creado.Precio,
+                    DuracionEstimada = creado.DuracionEstimada,
+                    Estado = creado.Estado
+                };
+
+                return CreatedAtAction(nameof(ObtenerPorId), new { id = creado.IdServicio }, response);
             }
-            catch
+            catch (ArgumentException ex)
             {
-                return NotFound();
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al crear servicio", error = ex.Message });
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ServicioResponseDTO>> Actualizar(long id, [FromBody] ServicioUpdateDTO dto)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var servicioExistente = await _servicioService.ObtenerPorId(id);
+                if (servicioExistente == null)
+                    return NotFound(new { message = "Servicio no encontrado" });
+
+                var servicioActualizar = new Servicio
+                {
+                    IdServicio = id,
+                    Codigo = servicioExistente.Codigo,
+                    Nombre = dto.Nombre ?? servicioExistente.Nombre,
+                    Descripcion = dto.Descripcion ?? servicioExistente.Descripcion,
+                    Precio = dto.Precio ?? servicioExistente.Precio,
+                    DuracionEstimada = dto.DuracionEstimada ?? servicioExistente.DuracionEstimada,
+                    Estado = dto.Estado ?? servicioExistente.Estado
+                };
+
+                var actualizado = await _servicioService.Actualizar(id, servicioActualizar);
+
+                var response = new ServicioResponseDTO
+                {
+                    IdServicio = actualizado.IdServicio,
+                    Codigo = actualizado.Codigo,
+                    Nombre = actualizado.Nombre,
+                    Descripcion = actualizado.Descripcion,
+                    Precio = actualizado.Precio,
+                    DuracionEstimada = actualizado.DuracionEstimada,
+                    Estado = actualizado.Estado
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al actualizar servicio", error = ex.Message });
             }
         }
 

@@ -12,10 +12,12 @@ namespace vetsoft_c.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly ClienteService _clienteService;
+        private readonly CodigoService _codigoService;
 
-        public ClientesController(ClienteService clienteService)
+        public ClientesController(ClienteService clienteService, CodigoService codigoService)
         {
             _clienteService = clienteService;
+            _codigoService = codigoService;
         }
 
         [HttpGet]
@@ -87,32 +89,131 @@ namespace vetsoft_c.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Cliente>> Crear([FromBody] Cliente cliente)
+        public async Task<ActionResult<ClienteResponseDTO>> Crear([FromBody] ClienteCreateDTO dto)
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                // Generar código único
+                var codigo = await _codigoService.GenerarCodigoClienteAsync();
+
+                // Crear cliente con código generado
+                var cliente = new Cliente
+                {
+                    Codigo = codigo,
+                    Nombre = dto.Nombre,
+                    Apellido = dto.Apellido,
+                    Correo = dto.Correo,
+                    Telefono = dto.Telefono,
+                    Direccion = dto.Direccion,
+                    Ciudad = dto.Ciudad,
+                    Estado = true
+                };
+
                 var nuevoCliente = await _clienteService.Crear(cliente);
-                return CreatedAtAction(nameof(ObtenerPorId), new { codigo = nuevoCliente.Codigo }, nuevoCliente);
+
+                var response = new ClienteResponseDTO
+                {
+                    IdCliente = nuevoCliente.IdCliente,
+                    Codigo = nuevoCliente.Codigo,
+                    Nombre = nuevoCliente.Nombre,
+                    Apellido = nuevoCliente.Apellido,
+                    Correo = nuevoCliente.Correo,
+                    Telefono = nuevoCliente.Telefono,
+                    Direccion = nuevoCliente.Direccion,
+                    Ciudad = nuevoCliente.Ciudad,
+                    Estado = nuevoCliente.Estado
+                };
+
+                return CreatedAtAction(nameof(ObtenerPorId), new { codigo = nuevoCliente.Codigo }, response);
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
-                return BadRequest();
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al crear cliente", error = ex.Message });
             }
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Cliente>> Actualizar(long id, [FromBody] Cliente cliente)
+        public async Task<ActionResult<ClienteResponseDTO>> Actualizar(long id, [FromBody] ClienteUpdateDTO dto)
         {
             try
             {
-                var clienteActualizado = await _clienteService.Actualizar(id, cliente);
-                return Ok(clienteActualizado);
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var clienteExistente = await _clienteService.ObtenerPorId(id);
+                if (clienteExistente == null)
+                    return NotFound(new { message = "Cliente no encontrado" });
+
+                var clienteActualizar = new Cliente
+                {
+                    IdCliente = id,
+                    Codigo = clienteExistente.Codigo,
+                    Nombre = dto.Nombre ?? clienteExistente.Nombre,
+                    Apellido = dto.Apellido ?? clienteExistente.Apellido,
+                    Correo = dto.Correo ?? clienteExistente.Correo,
+                    Telefono = dto.Telefono ?? clienteExistente.Telefono,
+                    Direccion = dto.Direccion ?? clienteExistente.Direccion,
+                    Ciudad = dto.Ciudad ?? clienteExistente.Ciudad,
+                    Estado = dto.Estado ?? clienteExistente.Estado
+                };
+
+                var clienteActualizado = await _clienteService.Actualizar(id, clienteActualizar);
+
+                var response = new ClienteResponseDTO
+                {
+                    IdCliente = clienteActualizado.IdCliente,
+                    Codigo = clienteActualizado.Codigo,
+                    Nombre = clienteActualizado.Nombre,
+                    Apellido = clienteActualizado.Apellido,
+                    Correo = clienteActualizado.Correo,
+                    Telefono = clienteActualizado.Telefono,
+                    Direccion = clienteActualizado.Direccion,
+                    Ciudad = clienteActualizado.Ciudad,
+                    Estado = clienteActualizado.Estado
+                };
+
+                return Ok(response);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return NotFound();
+                return StatusCode(500, new { message = "Error al actualizar cliente", error = ex.Message });
             }
         }
+
+        // [HttpPost]
+        // public async Task<ActionResult<Cliente>> Crear([FromBody] Cliente cliente)
+        // {
+        //     try
+        //     {
+        //         var nuevoCliente = await _clienteService.Crear(cliente);
+        //         return CreatedAtAction(nameof(ObtenerPorId), new { codigo = nuevoCliente.Codigo }, nuevoCliente);
+        //     }
+        //     catch (ArgumentException)
+        //     {
+        //         return BadRequest();
+        //     }
+        // }
+
+        // [HttpPut("{id}")]
+        // public async Task<ActionResult<Cliente>> Actualizar(long id, [FromBody] Cliente cliente)
+        // {
+        //     try
+        //     {
+        //         var clienteActualizado = await _clienteService.Actualizar(id, cliente);
+        //         return Ok(clienteActualizado);
+        //     }
+        //     catch (Exception)
+        //     {
+        //         return NotFound();
+        //     }
+        // }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Eliminar(long id)

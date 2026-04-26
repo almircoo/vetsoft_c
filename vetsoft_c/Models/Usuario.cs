@@ -46,8 +46,8 @@ namespace vetsoft_c.Models
         [Required]
         [Column("rol")]
         [StringLength(20)]
-        public string RolString 
-        { 
+        public string RolString
+        {
             get { return Rol.ToString(); }
             set { Rol = Enum.Parse<Rol>(value); }
         }
